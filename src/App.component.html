@@ -1,0 +1,13 @@
+<div class="app">
+    <v-app>
+        <navbar>
+            <v-content slot="content">
+                <v-container>
+                    <transition name="route" mode="out-in" appear>
+                        <router-view></router-view>
+                    </transition>
+                </v-container>
+            </v-content>
+        </navbar>
+    </v-app>
+</div>

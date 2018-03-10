@@ -1,0 +1,14 @@
+@import '~material-design-icons/iconfont/material-icons.css';
+@import '~vuetify/dist/vuetify.min.css';
+@import "~animate.css/source/zooming_entrances/zoomIn.css";
+@import "~animate.css/source/zooming_exits/zoomOut.css";
+
+.route {
+  &-enter-active {
+    animation: zoomIn .5
+  }
+  &-leave-active {
+    animation: zoomOut .5;
+  }
+
+}

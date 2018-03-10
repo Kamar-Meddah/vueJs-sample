@@ -1,0 +1,12 @@
+.navbar {
+  .search{
+    width: 10em;
+
+    transition: width 0.5s;
+    &:hover{
+      width: 20em;
+      transition: width 0.5s;
+    }
+
+  }
+}
