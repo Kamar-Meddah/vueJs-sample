@@ -1,12 +1,34 @@
 <div class="home">
-    <v-container fluid>
-        <v-layout row wrap>
-            <v-flex sm8 xs12>
-                dfghjklm
-            </v-flex>
-            <v-flex sm4 class="hidden-xs-only">
+    <h1 class="display-3">Home</h1>
+    <v-layout row wrap>
+        <v-flex sm8 xs12>
 
-            </v-flex>
-        </v-layout>
-    </v-container>
+            <v-container>
+                <br>
+                <div v-for="post in posts" :key="post.id">
+                    <v-card>
+                        <v-card-title primaryTitle>
+                            <h2 class="display-1">{{post.title}}</h2>
+                        </v-card-title>
+                        <v-container>
+                            <p v-html="post.content.substr(0,100)"></p>
+                        </v-container>
+                    </v-card>
+                    <br>
+                </div>
+            </v-container>
+            <div class="text-xs-center">
+                <v-pagination></v-pagination>
+            </div>
+            <br>
+        </v-flex>
+        <v-flex sm1 class="hidden-xs-only"></v-flex>
+        <v-flex sm3 class="hidden-xs-only">
+            <v-card>
+                ghjklm
+            </v-card>
+        </v-flex>
+    </v-layout>
+
+
 </div>

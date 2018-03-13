@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import 'babel-polyfill';
 import Vuetify from 'vuetify';
 import AppComponent from './App.component';
 import router from './router';

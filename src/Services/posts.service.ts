@@ -1,23 +1,23 @@
-import axios from 'axios';
+import axios, {AxiosPromise} from 'axios';
 import {Config} from '@/Config';
-import {isUndefined} from 'util';
+import Post from '@/Models/PostInterface';
 
 export default class PostsService {
 
-    public static getInstance() {
+    public static getInstance(): PostsService {
         if (PostsService.instance === undefined) {
             PostsService.instance = new PostsService();
         }
         return PostsService.instance;
     }
 
-    private static instance;
+    private static instance: PostsService;
 
     private constructor(private http = axios) {
     }
 
 
-    public all(): any {
+    public all(): AxiosPromise<Post> {
         return this.http.get(`${Config.HOST}/posts/all`);
     }
 
