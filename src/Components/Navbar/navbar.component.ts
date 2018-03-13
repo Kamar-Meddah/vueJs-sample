@@ -16,7 +16,7 @@ export default class NavbarComponent extends Vue {
         return this.searched.trim().length !== 0;
     }
 
-    public check(input) {
+    public check(input: string) {
         return true;
 
     }
