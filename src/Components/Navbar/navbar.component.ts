@@ -12,6 +12,7 @@ export default class NavbarComponent extends Vue {
         this.searched = '';
     }
 
+
     public search() {
         return this.searched.trim().length !== 0;
     }

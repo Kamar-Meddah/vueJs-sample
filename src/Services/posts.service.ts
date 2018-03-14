@@ -1,6 +1,6 @@
-import axios, {AxiosPromise} from 'axios';
-import {Config} from '@/Config';
-import Post from '@/Models/PostInterface';
+
+import {AxiosPromise} from 'axios';
+import {HTTP} from '@/Services/http-common';
 
 export default class PostsService {
 
@@ -13,12 +13,13 @@ export default class PostsService {
 
     private static instance: PostsService;
 
-    private constructor(private http = axios) {
+    private constructor(private http = HTTP) {
+        // this.http.defaults.headers.common['Authorization'] = AUTH_TOKEN;
     }
 
 
-    public all(): AxiosPromise<Post> {
-        return this.http.get(`${Config.HOST}/posts/all`);
+    public all(page: number): AxiosPromise<any> {
+        return this.http.get(`/posts/allHome/${page}`);
     }
 
 }

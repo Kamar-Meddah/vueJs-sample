@@ -12,3 +12,19 @@
   }
 
 }
+
+#progress {
+  position: fixed;
+  z-index: 1;
+  left: 0px;
+  @media (min-width: 960px) {
+    top: 50px
+  }
+  @media (max-width: 960px) {
+    top: 34px;
+  }
+  @media (max-width: 600px) {
+    top: 42px;
+  }
+
+}

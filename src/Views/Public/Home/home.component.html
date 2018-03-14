@@ -1,8 +1,9 @@
 <div class="home">
+    <v-progress-linear :indeterminate="true" height="4" id="progress" :active="loading"></v-progress-linear>
+
     <h1 class="display-3">Home</h1>
     <v-layout row wrap>
         <v-flex sm8 xs12>
-
             <v-container>
                 <br>
                 <div v-for="post in posts" :key="post.id">
@@ -11,14 +12,15 @@
                             <h2 class="display-1">{{post.title}}</h2>
                         </v-card-title>
                         <v-container>
-                            <p v-html="post.content.substr(0,100)"></p>
+                            <p v-html="post.content"></p>
                         </v-container>
                     </v-card>
                     <br>
                 </div>
             </v-container>
-            <div class="text-xs-center">
-                <v-pagination></v-pagination>
+            <div class="text-xs-center" v-if="posts!=null">
+                <v-pagination :length="totaPage" v-model="currentPage" total-visible="6"
+                              @input="test($event)" circle></v-pagination>
             </div>
             <br>
         </v-flex>
@@ -29,6 +31,7 @@
             </v-card>
         </v-flex>
     </v-layout>
-
+    <router-link to="/vcvcv/vcvc/vcv">jk</router-link>
 
 </div>
+

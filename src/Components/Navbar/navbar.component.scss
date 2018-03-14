@@ -1,9 +1,9 @@
 .navbar {
-  .search{
+  .search {
     width: 10em;
 
     transition: width 0.5s;
-    &:hover{
+    &:hover {
       width: 20em;
       transition: width 0.5s;
     }

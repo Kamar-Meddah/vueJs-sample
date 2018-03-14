@@ -1,7 +1,6 @@
 <div class="navbar" id="app">
     <v-navigation-drawer fixed v-model="drawer" temporary>
         <v-text-field :rules="[check]" label="Search" append-icon="search" :append-icon-cb="search" v-model="searched" @keyup.enter="search"></v-text-field>
-
     </v-navigation-drawer>
 
     <v-toolbar fixed dark color="primary">
@@ -15,10 +14,5 @@
             <v-text-field class="search" :rules="[check]" color="indiago" placeholder="Search" append-icon="search" :append-icon-cb="search" v-model="searched" @keyup.enter="search"></v-text-field>
         </v-toolbar-items>
     </v-toolbar>
-    <br><br><br><br>
-    <slot name="content"></slot>
-    <br><br><br><br>
-    <v-footer class="primary darken-1 " absolute>
-        <span class="white--text">&copy; {{new Date().getFullYear()}}</span>
-    </v-footer>
+    <br><br><br>
 </div>
