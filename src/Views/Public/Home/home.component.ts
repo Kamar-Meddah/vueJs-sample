@@ -1,8 +1,10 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
+
 import PostsService from '@/Services/posts.service';
 import PostInterface from '@/Models/PostInterface';
-import {SetAbstract} from '@/Pipes/SetAbstract.Pipe';
+import CategoriesComponent from '@/Components/Public/Categories/categories.component';
+import {SetAbstract} from '@/Pipes/SetAbstract.pipe';
 
 @Component({
     metaInfo: {
@@ -10,6 +12,9 @@ import {SetAbstract} from '@/Pipes/SetAbstract.Pipe';
     },
     filters: {
         SetAbstract,
+    },
+    components: {
+        categories: CategoriesComponent,
     },
 })
 export default class HomeComponent extends Vue {
@@ -33,7 +38,7 @@ export default class HomeComponent extends Vue {
     }
 
     public mounted() {
-        this.currentPage = parseInt(this.$route.params.page, 10);
+        this.currentPage = this.$route.params.page ? parseInt(this.$route.params.page, 10) : 1;
         this.getPosts();
     }
 

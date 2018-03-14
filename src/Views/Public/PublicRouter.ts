@@ -6,7 +6,7 @@ const publicRouter = [{
     component: Public,
     children: [
         {
-            path: '/:page',
+            path: '/:page(\\d+)?',
             name: 'home',
             component: HomeComponent,
         },

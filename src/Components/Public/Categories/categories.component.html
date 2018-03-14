@@ -1,3 +1,18 @@
-<div class="categories"> 
-    <h1>categoriesComponent</h1>
+<div class="categories">
+    <v-card>
+        <v-card-title primaryTitle>
+            <h2 class="display-1">Categories</h2>
+        </v-card-title>
+        <v-container>
+            <v-list dense>
+                <template v-for="category in categories">
+                    <v-list-tile :key="category.id">
+                        <v-list-tile-content>
+                            <v-list-tile-title class="list__tile title"> {{ category.title }}</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                </template>
+            </v-list>
+        </v-container>
+    </v-card>
 </div>

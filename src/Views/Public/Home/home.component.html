@@ -3,30 +3,28 @@
 
     <h1 class="display-3">Home</h1>
     <v-layout row wrap>
-        <v-flex sm8 xs12 v-if="posts.length !== 0">
+        <v-flex md8 sm12 xs12 v-if="posts.length !== 0">
+            <br>
+            <div v-for="(post, index) in posts" :key="post.id">
+                <v-card hover>
+                    <v-card-title primaryTitle>
+                        <h2 class="display-1">{{post.title}}</h2>
+                    </v-card-title>
+                    <v-container>
+                        <p v-html="post.content"></p>
+                    </v-container>
+                </v-card>
                 <br>
-                <div v-for="(post, index) in posts" :key="post.id">
-                    <v-card hover>
-                        <v-card-title primaryTitle>
-                            <h2 class="display-1">{{post.title}}</h2>
-                        </v-card-title>
-                        <v-container>
-                            <p v-html="post.content"></p>
-                        </v-container>
-                    </v-card>
-                    <br>
-                </div>
+            </div>
             <div class="text-xs-center">
                 <v-pagination :length="totaPage" v-model="currentPage"
                               @input="paginate($event)" circle></v-pagination>
             </div>
             <br>
         </v-flex>
-        <v-flex sm1 class="hidden-xs-only"></v-flex>
-        <v-flex sm3 class="hidden-xs-only">
-            <v-card>
-                ghjklm
-            </v-card>
+        <v-flex md1 class="hidden-sm-and-down"></v-flex>
+        <v-flex md3 class="hidden-sm-and-down">
+            <categories></categories>
         </v-flex>
     </v-layout>
     <router-link to="/vcvcv/vcvc/vcv">jk</router-link>
