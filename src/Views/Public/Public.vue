@@ -1,6 +1,8 @@
 <template>
     <div class="public">
-        <router-view></router-view>
+        <transition name="route" mode="out-in" appear>
+            <router-view></router-view>
+        </transition>
     </div>
 </template>
 

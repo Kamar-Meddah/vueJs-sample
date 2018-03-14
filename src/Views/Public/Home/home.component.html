@@ -3,11 +3,10 @@
 
     <h1 class="display-3">Home</h1>
     <v-layout row wrap>
-        <v-flex sm8 xs12>
-            <v-container>
+        <v-flex sm8 xs12 v-if="posts.length !== 0">
                 <br>
-                <div v-for="post in posts" :key="post.id">
-                    <v-card>
+                <div v-for="(post, index) in posts" :key="post.id">
+                    <v-card hover>
                         <v-card-title primaryTitle>
                             <h2 class="display-1">{{post.title}}</h2>
                         </v-card-title>
@@ -17,10 +16,9 @@
                     </v-card>
                     <br>
                 </div>
-            </v-container>
-            <div class="text-xs-center" v-if="posts!=null">
-                <v-pagination :length="totaPage" v-model="currentPage" total-visible="6"
-                              @input="test($event)" circle></v-pagination>
+            <div class="text-xs-center">
+                <v-pagination :length="totaPage" v-model="currentPage"
+                              @input="paginate($event)" circle></v-pagination>
             </div>
             <br>
         </v-flex>

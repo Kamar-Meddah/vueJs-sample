@@ -5,6 +5,7 @@ import router from './router';
 import Meta from 'vue-meta';
 import store from './store';
 import './registerServiceWorker';
+
 Vue.use(Meta);
 Vue.use(Vuetify);
 
