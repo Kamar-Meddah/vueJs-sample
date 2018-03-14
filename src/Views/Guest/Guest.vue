@@ -1,5 +1,5 @@
 <template>
-    <div class="public">
+    <div class="guest">
         <transition name="route" mode="out-in" appear>
             <router-view></router-view>
         </transition>
@@ -11,6 +11,6 @@
     import Component from 'vue-class-component';
 
     @Component
-    export default class Public extends Vue {
+    export default class Guest extends Vue {
     }
 </script>
