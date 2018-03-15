@@ -49,16 +49,15 @@ export default class SearchComponent extends Vue {
     }
 
     public paginate(page: number): void {
-        this.$router.push(`/${this.title}/${this.id}/${page}`);
+        this.$router.push(`/search/${this.title}/${page}`);
     }
 
     private getPosts(): void {
         this.loading = true;
-        this.postsService.findByCategory(this.id, this.currentPage).then((post: any) => {
+        this.postsService.search(this.title, this.currentPage).then((post: any) => {
             if (post.data.data.length === 0) {
-                this.$router.push('/notfound');
+               //   this.$router.push('/notfound');
             } else {
-                this.title = post.data.data[0].category.title;
                 this.totaPage = post.data.last_page as number;
                 this.perPage = post.data.per_page as number;
                 this.posts = SetAbstract(post.data.data);
@@ -71,7 +70,7 @@ export default class SearchComponent extends Vue {
 
     private init(): void {
         this.currentPage = this.$route.params.page ? parseInt(this.$route.params.page, 10) : 1;
-        this.title = this.$route.params.title;
+        this.title = this.$route.params.query;
         this.id = parseInt(this.$route.params.id, 10);
         this.getPosts();
     }

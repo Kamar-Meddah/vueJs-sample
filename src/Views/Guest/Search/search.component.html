@@ -2,32 +2,37 @@
     <div class="posts-by-category">
         <v-progress-linear :indeterminate="true" height="4" id="progress" :active="loading"></v-progress-linear>
 
-        <h1 class="display-3">{{title}}</h1>
+        <h1 class="display-3">Result : {{title}}</h1>
         <v-layout row wrap>
-            <v-flex md8 sm12 xs12 v-if="posts.length !== 0">
+            <div md8 sm12 xs12>
                 <br>
-                <div v-for="(post, index) in posts" :key="post.id">
-                    <v-card hover>
-                        <v-card-title primaryTitle>
-                            <h2 class="display-1">{{post.title}}</h2>
-                        </v-card-title>
-                        <v-subheader :key="post.id">
-                            <span class="list__tile">{{ post.category.title }}</span>
-                        </v-subheader>
-                        <v-container>
-                            <p v-html="post.content"></p>
-                        </v-container>
-                        <div class="text-xs-right text--disabled">
-                            {{post.created_at}}
-                        </div>
-                    </v-card>
+                <div v-if="posts.length !== 0">
+                    <div v-for="(post, index) in posts" :key="post.id">
+                        <v-card hover>
+                            <v-card-title primaryTitle>
+                                <h2 class="display-1">{{post.title}}</h2>
+                            </v-card-title>
+                            <v-subheader :key="post.id">
+                                <span class="list__tile">{{ post.category.title }}</span>
+                            </v-subheader>
+                            <v-container>
+                                <p v-html="post.content"></p>
+                            </v-container>
+                            <div class="text-xs-right text--disabled">
+                                {{post.created_at}}
+                            </div>
+                        </v-card>
+                        <br>
+                    </div>
+
+                    <div class="text-xs-center">
+                        <v-pagination :length="totaPage" v-model="currentPage"
+                                      @input="paginate($event)" circle></v-pagination>
+                    </div>
                     <br>
                 </div>
-                <div class="text-xs-center">
-                    <v-pagination :length="totaPage" v-model="currentPage"
-                                  @input="paginate($event)" circle></v-pagination>
-                </div>
-                <br>
+                <div v-else><br><h1 class="display-2">No Post title match the query</h1></div>
+            </div>
             </v-flex>
             <v-flex md1 class="hidden-sm-and-down"></v-flex>
             <v-flex md3 class="hidden-sm-and-down">

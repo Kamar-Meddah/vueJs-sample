@@ -13,7 +13,7 @@ const GuestRouter = [{
             component: HomeComponent,
         },
         {
-            path: '/search/:title([A-z0-9]+)/:page(\\d+)?',
+            path: '/search/:query([A-z0-9]+)/:page(\\d+)?',
             name: 'SearchComponent',
             component: SearchComponent,
         },
