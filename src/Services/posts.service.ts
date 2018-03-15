@@ -1,5 +1,6 @@
 import {AxiosPromise} from 'axios';
 import {HTTP} from '@/Services/http-common';
+import PostInterface from '@/Models/PostInterface';
 
 export default class PostsService {
 
@@ -26,6 +27,10 @@ export default class PostsService {
 
     public search(query: string, page: number): AxiosPromise<any> {
         return this.http.get(`posts/search/${query}/${page}`);
+    }
+
+    public find(id: number): AxiosPromise<PostInterface> {
+        return this.http.get(`posts/find/${id}`);
     }
 
 }

@@ -1,3 +1,30 @@
-<div class="show-post"> 
-    <h1>show-postComponent</h1>
+<div class="show-post">
+    <v-progress-linear :indeterminate="true" height="4" id="progress" :active="loading"></v-progress-linear>
+    <div v-if="post.id !== undefined">
+        <h1 class="display-3">Home</h1>
+        <br>
+        <v-card hover>
+            <v-card-title primaryTitle>
+                <h2 class="display-1">
+                    {{post.title}}
+                </h2>
+            </v-card-title>
+            <v-subheader :key="post.id">
+                <router-link
+                        :to="{name:'postsByCategory',params:{id:post.category.id, title:post.category.title}}"
+                        class="list__tile">
+                    {{ post.category.title }}
+                </router-link>
+            </v-subheader>
+
+            <v-container>
+                <p v-html="post.content"></p>
+            </v-container>
+            <div class="text-xs-right text--disabled">
+                {{post.created_at}}
+            </div>
+        </v-card>
+        <br>
+
+    </div>
 </div>

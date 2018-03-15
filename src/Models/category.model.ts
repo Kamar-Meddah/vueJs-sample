@@ -4,5 +4,6 @@ export default class CategoryModel implements CategoryInterface {
 
     // public id: number;
     public title: string = '';
+    public slug: string = '';
 
 }
