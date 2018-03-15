@@ -6,21 +6,20 @@ import CategoryInterface from '@/Models/CategoryInterface';
 @Component({})
 export default class CategoriesComponent extends Vue {
 
-  private categoriesService: CatgeoriesService;
-  private categories?: CategoryInterface [];
+    private categoriesService: CatgeoriesService;
+    private categories?: CategoryInterface [];
 
-  constructor() {
-    super();
-    this.categoriesService = CatgeoriesService.getInstance();
-    this.categories = [];
-  }
+    constructor() {
+        super();
+        this.categoriesService = CatgeoriesService.getInstance();
+        this.categories = [];
+    }
 
-  public mounted() {
-    //  console.log('hello from app');
-      this.categoriesService.all().then((data) => {
-          this.categories = data.data;
-      });
-  }
+    public mounted() {
+        this.categoriesService.all().then((data) => {
+            this.categories = data.data;
+        });
+    }
 
 }
 

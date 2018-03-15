@@ -1,7 +1,7 @@
-<div class="home">
+<div class="posts-by-category">
     <v-progress-linear :indeterminate="true" height="4" id="progress" :active="loading"></v-progress-linear>
 
-    <h1 class="display-3">Home</h1>
+    <h1 class="display-3">{{title}}</h1>
     <v-layout row wrap>
         <v-flex md8 sm12 xs12 v-if="posts.length !== 0">
             <br>
@@ -11,13 +11,8 @@
                         <h2 class="display-1">{{post.title}}</h2>
                     </v-card-title>
                     <v-subheader :key="post.id">
-                        <router-link
-                                :to="{name:'postsByCategory',params:{id:post.category.id, title:post.category.title}}"
-                                class="list__tile">
-                            {{ post.category.title }}
-                        </router-link>
+                        <span class="list__tile">{{ post.category.title }}</span>
                     </v-subheader>
-
                     <v-container>
                         <p v-html="post.content"></p>
                     </v-container>
@@ -39,4 +34,3 @@
         </v-flex>
     </v-layout>
 </div>
-

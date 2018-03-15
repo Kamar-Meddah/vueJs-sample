@@ -3,6 +3,10 @@
 @import "~animate.css/source/zooming_entrances/zoomIn.css";
 @import "~animate.css/source/zooming_exits/zoomOut.css";
 
+a {
+  text-decoration: none;
+}
+
 .route {
   &-enter-active {
     animation: zoomIn .5
@@ -25,5 +29,4 @@
   @media (max-width: 600px) {
     top: 42px;
   }
-
 }

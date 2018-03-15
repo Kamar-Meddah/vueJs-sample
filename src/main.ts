@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify';
+import './class-component-hooks';
 import AppComponent from './App.component';
 import router from './router';
 import Meta from 'vue-meta';
@@ -12,7 +13,7 @@ Vue.use(Vuetify);
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  store,
-  render: (h) => h(AppComponent),
+    router,
+    store,
+    render: (h) => h(AppComponent),
 }).$mount('#app');

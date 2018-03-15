@@ -8,7 +8,18 @@
                 <template v-for="category in categories">
                     <v-list-tile :key="category.id">
                         <v-list-tile-content>
-                            <v-list-tile-title class="list__tile title"> {{ category.title }}</v-list-tile-title>
+                            <v-list-tile-title class="list__tile title">
+                                <router-link :to="{
+                                    name: 'postsByCategory',
+                                        params:{
+                                            title: category.title,
+                                            id: category.id,
+                                            page:1
+                                        }
+                                    }">
+                                    {{ category.title }}
+                                </router-link>
+                            </v-list-tile-title>
                         </v-list-tile-content>
                     </v-list-tile>
                 </template>

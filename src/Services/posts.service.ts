@@ -17,7 +17,11 @@ export default class PostsService {
     }
 
     public all(page: number): AxiosPromise<any> {
-        return this.http.get(`/posts/allHome/${page}`);
+        return this.http.get(`/posts/last/${page}`);
+    }
+
+    public findByCategory(id: number, page: number): AxiosPromise<any> {
+        return this.http.get(`/posts/lastByCatgory/${id}/${page}`);
     }
 
 }

@@ -8,7 +8,7 @@ import {SetAbstract} from '@/Pipes/SetAbstract.pipe';
 
 @Component({
     metaInfo: {
-        title: 'Home',
+        title: 'Categorie',
     },
     filters: {
         SetAbstract,
@@ -17,13 +17,14 @@ import {SetAbstract} from '@/Pipes/SetAbstract.pipe';
         categories: CategoriesComponent,
     },
 })
-export default class HomeComponent extends Vue {
-
+export default class PostsByCategoryComponent extends Vue {
     protected posts?: PostInterface[];
     protected currentPage: number;
     protected totaPage: number;
     protected perPage: number;
+    protected id: number;
     protected loading: boolean;
+    protected title: string;
 
     private postsService: PostsService;
 
@@ -35,6 +36,8 @@ export default class HomeComponent extends Vue {
         this.currentPage = 1;
         this.perPage = 10;
         this.loading = true;
+        this.title = '';
+        this.id = 1;
     }
 
     public mounted() {
@@ -47,15 +50,16 @@ export default class HomeComponent extends Vue {
     }
 
     public paginate(page: number): void {
-        this.$router.push(`/${page}`);
+        this.$router.push(`/${this.title}/${this.id}/${page}`);
     }
 
     private getPosts(): void {
         this.loading = true;
-        this.postsService.all(this.currentPage).then((post: any) => {
+        this.postsService.findByCategory(this.id, this.currentPage).then((post: any) => {
             if (post.data.data.length === 0) {
                 this.$router.push('/notfound');
             } else {
+                this.title = post.data.data[0].category.title;
                 this.totaPage = post.data.last_page as number;
                 this.perPage = post.data.per_page as number;
                 this.posts = SetAbstract(post.data.data);
@@ -68,9 +72,9 @@ export default class HomeComponent extends Vue {
 
     private init(): void {
         this.currentPage = this.$route.params.page ? parseInt(this.$route.params.page, 10) : 1;
+        this.title = this.$route.params.title;
+        this.id = parseInt(this.$route.params.id, 10);
         this.getPosts();
     }
-
-
 }
 
