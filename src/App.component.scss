@@ -9,10 +9,10 @@ a {
 
 .route {
   &-enter-active {
-    animation: zoomIn .5
+    animation: zoomIn 0.5s;
   }
   &-leave-active {
-    animation: zoomOut .5;
+    animation: zoomOut 0.5;
   }
 }
 

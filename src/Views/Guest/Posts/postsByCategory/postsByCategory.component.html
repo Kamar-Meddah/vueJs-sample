@@ -2,13 +2,23 @@
     <v-progress-linear :indeterminate="true" height="4" id="progress" :active="loading"></v-progress-linear>
 
     <h1 class="display-3">{{title}}</h1>
-    <v-layout row wrap>
-        <v-flex md8 sm12 xs12 v-if="posts.length !== 0">
+
             <br>
             <div v-for="(post, index) in posts" :key="post.id">
                 <v-card hover>
                     <v-card-title primaryTitle>
-                        <h2 class="display-1">{{post.title}}</h2>
+                        <h2 class="display-1">
+                            <router-link :to="{
+                                name:'showPost',
+                                    params:{
+                                        category: post.category.title,
+                                        title: post.slug,
+                                        id: post.id
+                                    }
+                            }">
+                                {{post.title}}
+                            </router-link>
+                        </h2>
                     </v-card-title>
                     <v-subheader :key="post.id">
                         <span class="list__tile">{{ post.category.title }}</span>
@@ -27,10 +37,5 @@
                               @input="paginate($event)" circle></v-pagination>
             </div>
             <br>
-        </v-flex>
-        <v-flex md1 class="hidden-sm-and-down"></v-flex>
-        <v-flex md3 class="hidden-sm-and-down">
-            <categories></categories>
-        </v-flex>
-    </v-layout>
+
 </div>

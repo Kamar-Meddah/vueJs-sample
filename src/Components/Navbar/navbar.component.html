@@ -8,7 +8,7 @@
         <v-btn icon class="hidden-sm-and-down">
             <v-icon>more_vert</v-icon>
         </v-btn>
-        <v-toolbar-title class="white--text">Blog</v-toolbar-title>
+        <router-link :to="{name:'home',params:{page: '1'}}"><v-toolbar-title class="white--text">Blog</v-toolbar-title></router-link>
         <v-spacer></v-spacer>
         <v-toolbar-items class="hidden-sm-and-down">
             <v-text-field class="search" :rules="[check]" color="indiago" placeholder="Search" append-icon="search" :append-icon-cb="search" v-model="searched" @keyup.enter="search"></v-text-field>

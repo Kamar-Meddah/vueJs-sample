@@ -1,4 +1,5 @@
 <div class="categories">
+    <br><br><br><br>
     <v-card>
         <v-card-title primaryTitle>
             <h2 class="display-1">Categories</h2>
@@ -12,7 +13,7 @@
                                 <router-link :to="{
                                     name: 'postsByCategory',
                                         params:{
-                                            title: category.title,
+                                            title: category.slug,
                                             id: category.id,
                                             page:1
                                         }

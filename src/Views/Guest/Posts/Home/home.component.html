@@ -1,0 +1,44 @@
+<div class="home">
+    <v-progress-linear :indeterminate="true" height="4" id="progress" :active="loading"></v-progress-linear>
+    <h1 class="display-3">Home</h1>
+    <br>
+    <div v-for="(post, index) in posts" :key="post.id">
+        <v-card hover >
+            <v-card-title primaryTitle>
+                <h2 class="display-1">
+                    <router-link :to="{
+                                name:'showPost',
+                                    params:{
+                                        category: post.category.title,
+                                        title: post.slug,
+                                        id: post.id
+                                    }
+                            }">
+                        {{post.title}}
+                    </router-link>
+                </h2>
+            </v-card-title>
+            <v-subheader :key="post.id">
+                <router-link
+                        :to="{name:'postsByCategory',params:{id:post.category.id, title:post.category.title}}"
+                        class="list__tile">
+                    {{ post.category.title }}
+                </router-link>
+            </v-subheader>
+
+            <v-container>
+                <p v-html="post.content"></p>
+            </v-container>
+            <div class="text-xs-right text--disabled">
+                {{post.created_at}}
+            </div>
+        </v-card>
+        <br>
+    </div>
+    <div class="text-xs-center">
+        <v-pagination :length="totaPage" v-model="currentPage"
+                      @input="paginate($event)" circle></v-pagination>
+    </div>
+    <br>
+</div>
+

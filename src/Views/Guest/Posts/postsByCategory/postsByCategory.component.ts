@@ -72,7 +72,6 @@ export default class PostsByCategoryComponent extends Vue {
 
     private init(): void {
         this.currentPage = this.$route.params.page ? parseInt(this.$route.params.page, 10) : 1;
-        this.title = this.$route.params.title;
         this.id = parseInt(this.$route.params.id, 10);
         this.getPosts();
     }

@@ -13,9 +13,7 @@ import {SetAbstract} from '@/Pipes/SetAbstract.pipe';
     filters: {
         SetAbstract,
     },
-    components: {
-        categories: CategoriesComponent,
-    },
+
 })
 export default class HomeComponent extends Vue {
 
@@ -24,7 +22,6 @@ export default class HomeComponent extends Vue {
     protected totaPage: number;
     protected perPage: number;
     protected loading: boolean;
-
     private postsService: PostsService;
 
     constructor() {

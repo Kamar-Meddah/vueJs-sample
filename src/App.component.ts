@@ -13,5 +13,5 @@ import FooterComponent from '@/Components/Footer/footer.component';
     },
 })
 export default class AppComponent extends Vue {
+    public snackbar: boolean = false;
 }
-

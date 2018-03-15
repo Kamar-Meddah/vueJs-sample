@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import './class-component-hooks';
+
 import GuestRouter from '@/Views/Guest/GuestRouter';
 import NotfoundComponent from '@/Views/notfound/notfound.component';
 
@@ -13,5 +15,6 @@ export default new Router({
             path: '**',
             component: NotfoundComponent,
         },
+
     ],
 });
