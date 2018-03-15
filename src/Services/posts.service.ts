@@ -24,4 +24,8 @@ export default class PostsService {
         return this.http.get(`/posts/lastByCatgory/${id}/${page}`);
     }
 
+    public search(query: string, page: number): AxiosPromise<any> {
+        return this.http.get(`posts/search/${query}/${page}`);
+    }
+
 }
