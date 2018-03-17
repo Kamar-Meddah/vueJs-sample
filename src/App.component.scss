@@ -3,30 +3,54 @@
 @import "~animate.css/source/zooming_entrances/zoomIn.css";
 @import "~animate.css/source/zooming_exits/zoomOut.css";
 
-a {
-  text-decoration: none;
-}
+.app {
 
-.route {
-  &-enter-active {
-    animation: zoomIn 0.5s;
+  a {
+    text-decoration: none;
   }
-  &-leave-active {
-    animation: zoomOut 0.5;
-  }
-}
 
-#progress {
-  position: fixed;
-  z-index: 1;
-  left: 0px;
-  @media (min-width: 960px) {
-    top: 50px
+  img {
+
+    &.responsive{
+      max-width: 100%;
+      height: auto;
+    }
+
+    &.img-thumbnail{
+      border: 3px solid white;
+      box-shadow: 1.5px 1.5px 1.5px 1.5px lightgray;
+      border-radius: 5px;
+
+      &:hover{
+        box-shadow: 2px 2px 2px 2px darkgray;
+        transition: box-shadow .3s
+      }
+
+    }
   }
-  @media (max-width: 960px) {
-    top: 34px;
+
+  .route {
+    &-enter-active {
+      animation: zoomIn 0.5s;
+    }
+    &-leave-active {
+      animation: zoomOut 0.5;
+    }
   }
-  @media (max-width: 600px) {
-    top: 42px;
+
+  #progress {
+    position: fixed;
+    z-index: 1;
+    left: 0px;
+    @media (min-width: 960px) {
+      top: 50px
+    }
+    @media (max-width: 960px) {
+      top: 34px;
+    }
+    @media (max-width: 600px) {
+      top: 42px;
+    }
   }
+
 }

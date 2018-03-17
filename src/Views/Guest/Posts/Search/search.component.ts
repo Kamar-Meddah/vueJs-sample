@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import {SetAbstract} from '@/Pipes/SetAbstract.pipe';
-import CategoriesComponent from '@/Components/Guest/Categories/categories.component';
+import CategoriesComponent from '@/Components/Guest/Posts/Categories/categories.component';
 import PostInterface from '@/Models/PostInterface';
 import PostsService from '@/Services/posts.service';
 

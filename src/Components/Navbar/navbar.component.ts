@@ -14,11 +14,10 @@ export default class NavbarComponent extends Vue {
 
 
     public search(): void {
-        this.$router.push(`/search/${this.searched.trim()}/`);
+        if (this.searched.trim().length !== 0) {
+            this.$router.push(`/search/${this.searched.trim()}/`);
+        }
     }
 
-    public check(input: string): boolean | string {
-        return true;
-    }
 }
 

@@ -1,13 +1,14 @@
 <div class="show-post">
     <v-progress-linear :indeterminate="true" height="4" id="progress" :active="loading"></v-progress-linear>
     <div v-if="post.id !== undefined">
-        <h1 class="display-3">Home</h1>
-        <br>
+        <div class="hidden-sm-and-down"><br><br><br><br></div>
+
+        <!-- show post -->
         <v-card hover>
             <v-card-title primaryTitle>
-                <h2 class="display-1">
+                <h1 class="display-2">
                     {{post.title}}
-                </h2>
+                </h1>
             </v-card-title>
             <v-subheader :key="post.id">
                 <router-link
@@ -17,14 +18,88 @@
                 </router-link>
             </v-subheader>
 
-            <v-container>
+            <v-container grid-list-lg>
+
                 <p v-html="post.content"></p>
+                <v-layout wrap>
+                    <v-flex xs12 sm6 md4 lg3 v-for="image in post.images" :key="image.id">
+                        <img class="responsive img-thumbnail" :src="'http://localhost:8000/files/images/'+image.id+'.jpg'" alt="f">
+                    </v-flex>
+                </v-layout>
+
             </v-container>
-            <div class="text-xs-right text--disabled">
-                {{post.created_at}}
+
+            <div class="text--disabled">
+                <v-container>
+                    <v-layout row>
+                        Published by {{post.user.username}}
+                        <v-spacer></v-spacer>
+                        {{post.created_at}}
+                    </v-layout>
+                </v-container>
             </div>
         </v-card>
+        <!-- show post -->
+
         <br>
+
+        <!-- Post Comment -->
+        <v-card hover>
+            <v-card-title primaryTitle>
+                <h2 class="display-1">
+                    Post your comments
+                </h2>
+            </v-card-title>
+            <v-container>
+                <v-form>
+                    <v-text-field required :rules="[check]" v-model.lazy.trim="comment" name="input-7-4"
+                                  label="Your comment" multi-line counter="200"></v-text-field>
+                    <div class="text-xs-right">
+                        <v-btn color="primary" @click="postComment()" :disabled="comment.trim().length === 0">
+                            submit
+                        </v-btn>
+                    </div>
+                </v-form>
+            </v-container>
+        </v-card>
+        <!-- end post comment -->
+
+        <!-- Comments -->
+        <br>
+        <v-card hover>
+            <v-card-title primaryTitle>
+                <h2 class="display-1">
+                    Comments
+                </h2>
+            </v-card-title>
+            <v-container grid-list-xs>
+                <v-card-text>
+                    <div v-for="comment in comments">
+                    <v-layout>
+                        <v-flex xs2 sm2 md1>
+                            <v-avatar color="success">
+                                <img :src="'http://i.pravatar.cc/150?u='+comment.user.id">
+                            </v-avatar>
+                        </v-flex>
+                        <v-flex xs10 sm10 md11>
+                            <h3>{{comment.user.username}}
+                                <v-btn color="primary" absolute small fab right style="z-index:1;width:auto;height:auto">
+                                    <v-icon>close</v-icon>
+                                </v-btn></h3>
+
+                            <v-container>
+                            <p>{{comment.content}}</p>
+
+                                <v-divider></v-divider>
+                            </v-container>
+                        </v-flex>
+                    </v-layout>
+                    </div>
+                </v-card-text>
+
+            </v-container>
+        </v-card>
+        <!-- end comments -->
 
     </div>
 </div>

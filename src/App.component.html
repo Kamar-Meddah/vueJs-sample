@@ -1,11 +1,8 @@
 <div class="app">
     <v-app>
-        <v-snackbar
-                v-model="snackbar">
-        </v-snackbar>
         <navbar></navbar>
         <v-content>
-            <v-container>
+            <v-container grid-list-xs>
                 <transition name="route" mode="out-in" appear>
                     <router-view></router-view>
                 </transition>

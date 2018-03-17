@@ -3,7 +3,7 @@ import Component from 'vue-class-component';
 
 import PostsService from '@/Services/posts.service';
 import PostInterface from '@/Models/PostInterface';
-import CategoriesComponent from '@/Components/Guest/Categories/categories.component';
+import CategoriesComponent from '@/Components/Guest/Posts/Categories/categories.component';
 import {SetAbstract} from '@/Pipes/SetAbstract.pipe';
 
 @Component({
@@ -57,7 +57,7 @@ export default class PostsByCategoryComponent extends Vue {
         this.loading = true;
         this.postsService.findByCategory(this.id, this.currentPage).then((post: any) => {
             if (post.data.data.length === 0) {
-                this.$router.push('/notfound');
+                //  this.$router.push('/notfound');
             } else {
                 this.title = post.data.data[0].category.title;
                 this.totaPage = post.data.last_page as number;

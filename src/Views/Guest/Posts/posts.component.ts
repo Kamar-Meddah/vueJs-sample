@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import CategoriesComponent from '@/Components/Guest/Categories/categories.component';
+import CategoriesComponent from '@/Components/Guest/Posts/Categories/categories.component';
 
 @Component({
     components: {
