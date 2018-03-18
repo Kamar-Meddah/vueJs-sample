@@ -1,4 +1,5 @@
 <div class="signup">
+    <v-progress-linear :indeterminate="true" height="5" id="progress" :active="loading"></v-progress-linear>
     <v-container>
         <v-layout row>
             <v-flex xs0 sm1 md2 xl4></v-flex>
@@ -23,7 +24,7 @@
                             </v-form>
                             <div class="text-xs-center">
                                 <br>
-                                <p>Already reegistred <router-link :to="{name:'signin'}">signin</router-link></p>
+                                <p>Already reegistred <router-link :to="{name:'signin'}">Sign in</router-link></p>
                             </div>
                         </v-container>
                     </v-card-text>

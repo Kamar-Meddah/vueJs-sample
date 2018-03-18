@@ -1,25 +1,48 @@
 <div class="navbar" id="app">
     <v-navigation-drawer fixed v-model="drawer" temporary>
         <v-container>
-                <v-text-field label="Search" append-icon="search" :append-icon-cb="search" v-model="searched"
-                              @keyup.enter="search"></v-text-field>
+            <v-list>
+                <v-list-tile>
+                    <v-list-tile-title>
+                        <v-text-field label="Search" append-icon="search" :append-icon-cb="search" v-model="searched"
+                                      @keyup.enter="search"></v-text-field>
+                    </v-list-tile-title>
+                </v-list-tile>
+            </v-list>
         </v-container>
 
     </v-navigation-drawer>
 
     <v-toolbar fixed dark color="primary">
         <v-toolbar-side-icon class="hidden-md-and-up" @click="drawer=!drawer"></v-toolbar-side-icon>
-        <v-btn icon class="hidden-sm-and-down">
-            <v-icon>more_vert</v-icon>
-        </v-btn>
+
+        <v-menu offset-y open-on-hover>
+            <v-btn icon slot="activator" class="hidden-sm-and-down">
+                <v-icon>more_horiz</v-icon>
+            </v-btn>
+            <v-list>
+                <v-list-tile>
+                    <v-list-tile-title>
+                        <router-link :to="{name:'signin'}" style="color:black"><span><v-icon>lock</v-icon> Sign in</span>
+                        </router-link>
+                    </v-list-tile-title>
+                </v-list-tile>
+                <v-list-tile>
+                    <v-list-tile-title>
+                        <router-link :to="{name:'signup'}" style="color:black"><span><v-icon>local_hospital</v-icon> Sign up</span>
+                        </router-link>
+                    </v-list-tile-title>
+                </v-list-tile>
+            </v-list>
+        </v-menu>
         <router-link :to="{name:'home',params:{page: '1'}}">
             <v-toolbar-title class="white--text">Blog</v-toolbar-title>
         </router-link>
         <v-spacer></v-spacer>
         <v-toolbar-items class="hidden-sm-and-down">
-                <v-text-field class="search" color="indiago" placeholder="Search" append-icon="search"
-                              :append-icon-cb="search" v-model="searched"
-                              @keyup.enter="search"></v-text-field>
+            <v-text-field class="search" color="indiago" placeholder="Search" append-icon="search"
+                          :append-icon-cb="search" v-model="searched"
+                          @keyup.enter="search"></v-text-field>
         </v-toolbar-items>
     </v-toolbar>
     <br><br><br>

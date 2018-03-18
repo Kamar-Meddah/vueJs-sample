@@ -1,3 +1,37 @@
-<div class="signin"> 
-    <h1>signinComponent</h1>
+<div class="signin">
+    <div class="signup">
+        <v-progress-linear :indeterminate="true" height="5" id="progress" :active="loading"></v-progress-linear>
+        <v-container>
+            <v-layout row>
+                <v-flex xs0 sm1 md2 xl4></v-flex>
+                <v-flex xs12 sm10 md8 xl4>
+                    <v-card>
+                        <v-card-title primaryTitle>
+                            <h1 class="display-2 text-xs-center">
+                                Sign in
+                            </h1>
+                        </v-card-title>
+
+                        <v-card-text>
+                            <v-container grid-list-xl>
+                                <v-form v-model="valid">
+                                    <v-text-field v-model="username" :rules="[checkUsername]" label="Username or Email" required></v-text-field>
+                                    <v-text-field v-model="password" :rules="[checkPassword]" type="password" label="Password" required></v-text-field>
+                                    <div class="text-xs-right">
+                                        <v-btn color="primary" type="submit" @click.prevent="signin">Login</v-btn>
+                                    </div>
+                                </v-form>
+                                <div class="text-xs-center">
+                                    <br>
+                                    <p>No account ? <router-link :to="{name:'signup'}">Sign up</router-link></p>
+                                </div>
+                            </v-container>
+                        </v-card-text>
+                    </v-card>
+                </v-flex>
+                <v-flex xs0 sm1 md2 xl4></v-flex>
+            </v-layout>
+        </v-container>
+    </div>
+
 </div>

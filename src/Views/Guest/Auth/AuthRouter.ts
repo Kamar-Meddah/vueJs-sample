@@ -3,7 +3,7 @@ import SigninComponent from '@/Views/Guest/Auth/signin/signin.component';
 import SignupComponent from '@/Views/Guest/Auth/signup/signup.component';
 
 const AuthRoute = [{
-    path: '',
+    path: '/auth',
     component: AuthComponent,
     children: [
         {
