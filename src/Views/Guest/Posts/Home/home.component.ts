@@ -5,6 +5,7 @@ import PostsService from '@/Services/posts.service';
 import PostInterface from '@/Models/PostInterface';
 import CategoriesComponent from '@/Components/Guest/Posts/Categories/categories.component';
 import {SetAbstract} from '@/Pipes/SetAbstract.pipe';
+import ServicesFactory from '@/Services/services.factory';
 
 @Component({
     metaInfo: {
@@ -27,7 +28,7 @@ export default class HomeComponent extends Vue {
     constructor() {
         super();
         this.totaPage = 1;
-        this.postsService = PostsService.getInstance();
+        this.postsService = ServicesFactory.getInstance().getPostsService();
         this.posts = [];
         this.currentPage = 1;
         this.perPage = 10;

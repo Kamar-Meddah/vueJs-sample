@@ -4,16 +4,7 @@ import PostInterface from '@/Models/PostInterface';
 
 export default class PostsService {
 
-    public static getInstance(): PostsService {
-        if (PostsService.instance === undefined) {
-            PostsService.instance = new PostsService();
-        }
-        return PostsService.instance;
-    }
-
-    private static instance: PostsService;
-
-    private constructor(private http = HTTP) {
+    public constructor(private http = HTTP) {
         // this.http.defaults.headers.common['Authorization'] = AUTH_TOKEN;
     }
 

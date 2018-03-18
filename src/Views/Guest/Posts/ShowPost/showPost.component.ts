@@ -7,6 +7,7 @@ import PostsService from '@/Services/posts.service';
 import PostModel from '@/Models/post.model';
 import CommentsService from '@/Services/comments.service';
 import CommentInterface from '@/Models/CommentInterface';
+import ServicesFactory from '@/Services/services.factory';
 
 @Component({})
 export default class ShowPostComponent extends Vue {
@@ -21,8 +22,8 @@ export default class ShowPostComponent extends Vue {
 
     constructor() {
         super();
-        this.postsService = PostsService.getInstance();
-        this.commentsService = CommentsService.getInstance();
+        this.postsService = ServicesFactory.getInstance().getPostsService();
+        this.commentsService = ServicesFactory.getInstance().getCommentsService();
         this.post = new PostModel();
         this.loading = false;
         this.valid = false;

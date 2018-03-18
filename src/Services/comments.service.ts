@@ -3,16 +3,10 @@ import {HTTP} from '@/Services/http-common';
 
 export default class CommentsService {
 
-    public static getInstance(): CommentsService {
-        if (CommentsService.instance === undefined) {
-            CommentsService.instance = new CommentsService();
-        }
-        return CommentsService.instance;
-    }
 
     private static instance: CommentsService;
 
-    private constructor(private http = HTTP) {
+    public constructor(private http = HTTP) {
         // this.http.defaults.headers.common['Authorization'] = AUTH_TOKEN;
     }
 
