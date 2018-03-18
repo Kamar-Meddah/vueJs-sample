@@ -1,3 +1,5 @@
+//  import '@fancyapps/fancybox/dist/jquery.fancybox.min';
+
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import AppComponent from './App.component';

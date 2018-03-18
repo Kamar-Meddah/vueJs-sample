@@ -23,7 +23,9 @@
                 <p v-html="post.content"></p>
                 <v-layout wrap>
                     <v-flex xs12 sm6 md4 lg3 v-for="image in post.images" :key="image.id">
-                        <img class="responsive img-thumbnail" :src="'http://localhost:8000/files/images/'+image.id+'.jpg'" alt="f">
+                        <a data-fancybox="gallery" :href="'http://localhost:8000/files/images/'+image.src">
+                            <img class="responsive img-thumbnail" :src="'http://localhost:8000/files/images/'+image.src" alt="f">
+                        </a>
                     </v-flex>
                 </v-layout>
 
@@ -73,7 +75,7 @@
                 </h2>
             </v-card-title>
             <v-container grid-list-xs>
-                <v-card-text>
+                <v-card-text v-if="comments.length !== 0">
                     <div v-for="comment in comments">
                     <v-layout>
                         <v-flex xs2 sm2 md1>
@@ -86,16 +88,21 @@
                                 <v-btn color="primary" absolute small fab right style="z-index:1;width:auto;height:auto">
                                     <v-icon>close</v-icon>
                                 </v-btn></h3>
-
                             <v-container>
                             <p>{{comment.content}}</p>
-
+                                <div class="text-xs-right text--disabled">{{comment.updated_at}}</div>
                                 <v-divider></v-divider>
                             </v-container>
                         </v-flex>
                     </v-layout>
                     </div>
                 </v-card-text>
+
+                <div v-else>
+                    <v-container>
+                        <h3 class="primary--text text-xs-center">no comment? , post your comment now</h3>
+                    </v-container>
+                </div>
 
             </v-container>
         </v-card>

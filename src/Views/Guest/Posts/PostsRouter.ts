@@ -1,4 +1,4 @@
-import PostsComponent from '@/Views/Guest/Posts/posts.component';
+import PostsComponent from '@/Views/Guest/Posts/posts.component.vue';
 import HomeComponent from '@/Views/Guest/Posts/Home/home.component';
 import PostsByCategoryComponent from '@/Views/Guest/Posts/postsByCategory/postsByCategory.component';
 import SearchComponent from '@/Views/Guest/Posts/Search/search.component';

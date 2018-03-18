@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
+import {AxiosResponse} from 'axios';
+
 import PostInterface from '@/Models/PostInterface';
 import PostsService from '@/Services/posts.service';
-import {AxiosResponse} from 'axios';
 import PostModel from '@/Models/post.model';
 import CommentsService from '@/Services/comments.service';
 import CommentInterface from '@/Models/CommentInterface';
