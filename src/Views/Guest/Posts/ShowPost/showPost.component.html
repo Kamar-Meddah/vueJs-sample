@@ -46,7 +46,7 @@
         <br>
 
         <!-- Post Comment -->
-        <v-card hover>
+        <v-card hover v-if="isLogged">
             <v-card-title primaryTitle>
                 <h2 class="display-1">
                     Post your comments
@@ -85,7 +85,7 @@
                         </v-flex>
                         <v-flex xs10 sm10 md11>
                             <h3>{{comment.user.username}}
-                                <v-btn color="primary" absolute small fab right style="z-index:1;width:auto;height:auto">
+                                <v-btn v-if="isLoggedAsAdmin" color="primary" absolute small fab right style="z-index:1;width:auto;height:auto">
                                     <v-icon>close</v-icon>
                                 </v-btn></h3>
                             <v-container>

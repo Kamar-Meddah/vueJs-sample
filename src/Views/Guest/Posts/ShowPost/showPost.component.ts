@@ -59,7 +59,10 @@ export default class ShowPostComponent extends Vue {
         } else {
             return 'Field required';
         }
+    }
 
+    get isLogged() {
+        return this.$store.getters.isLogged;
     }
 }
 
