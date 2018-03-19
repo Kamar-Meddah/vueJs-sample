@@ -42,7 +42,7 @@ export default class ServicesFactory {
         return this.commentsService;
     }
 
-    public getAuthSrvice(): AuthService {
+    public getAuthService(): AuthService {
         if (this.authService === undefined) {
             this.authService = new AuthService();
         }

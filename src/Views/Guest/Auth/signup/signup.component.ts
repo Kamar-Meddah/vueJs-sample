@@ -17,7 +17,7 @@ export default class SignupComponent extends Vue {
 
     constructor() {
         super();
-        this.authService = ServicesFactory.getInstance().getAuthSrvice();
+        this.authService = ServicesFactory.getInstance().getAuthService();
         this.email = '';
         this.password = '';
         this.confirmPassword = '';
@@ -66,13 +66,13 @@ export default class SignupComponent extends Vue {
         if (this.valid) {
             this.loading = true;
             this.authService.signup(this.username, this.password, this.email)
-                .then((data: AxiosResponse<{ created: string | boolean }>) => {
+                .then((data: AxiosResponse) => {
                     this.loading = false;
                     if (data.data.created === true) {
                         alert('Account successfully created');
                         this.$router.push('/auth/signin');
                     } else {
-                        alert(data.data.created);
+                        alert(data.data.message);
                     }
                 })
                 .catch((err: AxiosError) => {

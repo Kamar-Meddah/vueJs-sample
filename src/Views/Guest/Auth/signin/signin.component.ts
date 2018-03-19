@@ -14,7 +14,7 @@ export default class SigninComponent extends Vue {
 
     constructor() {
         super();
-        this.authService = ServicesFactory.getInstance().getAuthSrvice();
+        this.authService = ServicesFactory.getInstance().getAuthService();
         this.password = '';
         this.username = '';
         this.valid = false;
@@ -46,12 +46,14 @@ export default class SigninComponent extends Vue {
 
     public signin() {
         if (this.valid) {
-            const pattern = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-            if (pattern.test(this.username)) {
-                //  console.log('email');
-            } else {
-                //  console.log('username');
-            }
+            this.authService.signin(this.username, this.password).then((res) => {
+                if (res.data.token) {
+                    this.$store.dispatch('login', res.data.token);
+                }
+                alert(res.data.message);
+            });
+        } else {
+            alert('form invalid');
         }
     }
 

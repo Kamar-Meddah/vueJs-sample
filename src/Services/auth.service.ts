@@ -9,11 +9,15 @@ export default class AuthService {
     }
 
     public signup(username: string, password: string, email: string): AxiosPromise<{ created: boolean | string }> {
-        return this.http.post(`auth/signup/`, new UserModel(username, password, email));
+        return this.http.post(`users/signup`, new UserModel(username, password, email));
     }
 
     public signin(username: string, password: string): AxiosPromise {
-        return this.http.post(`auth/`, new UserModel(username, password));
+        return this.http.post(`auth/login`, new UserModel(username, password));
+    }
+
+    public checkToken(token: string | null): AxiosPromise {
+        return this.http.post('auth/check', {token});
     }
 
 }
