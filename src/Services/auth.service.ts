@@ -1,6 +1,7 @@
 import {AxiosPromise} from 'axios';
 import {HTTP} from '@/Services/http-common';
 import UserModel from '@/Models/user.model';
+import jwtDecode from 'jwt-decode';
 
 export default class AuthService {
 
@@ -19,5 +20,22 @@ export default class AuthService {
     public checkToken(token: string | null): AxiosPromise {
         return this.http.post('auth/check', {token});
     }
+
+    public decodeToken(): any {
+        if (localStorage.getItem('token') !== null) {
+            return jwtDecode(localStorage.getItem('token') as string);
+        } else {
+            return {role: null};
+        }
+    }
+
+    public isAdmin(): boolean {
+        return this.decodeToken().role === 'admin';
+    }
+
+    public isLogged(): boolean {
+        return localStorage.getItem('token') !== null;
+    }
+
 
 }

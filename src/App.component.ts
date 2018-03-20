@@ -15,9 +15,12 @@ import ServicesFactory from '@/Services/services.factory';
     },
 })
 export default class AppComponent extends Vue {
+
     private authService: AuthService;
+
     constructor() {
         super();
+        ServicesFactory.getInstance().getAuthService().isAdmin();
         this.authService = ServicesFactory.getInstance().getAuthService();
         if (this.$store.getters.isLogged) {
             this.authService.checkToken(localStorage.getItem('token')).then((res) => {
@@ -26,6 +29,6 @@ export default class AppComponent extends Vue {
                 }
             });
         }
-
     }
+
 }

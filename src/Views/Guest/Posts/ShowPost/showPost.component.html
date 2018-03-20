@@ -80,12 +80,12 @@
                     <v-layout>
                         <v-flex xs2 sm2 md1>
                             <v-avatar color="success">
-                                <img :src="'http://i.pravatar.cc/150?u='+comment.user.id">
+                                <img :src="'http://i.pravatar.cc/150?u='+comment.user_id">
                             </v-avatar>
                         </v-flex>
                         <v-flex xs10 sm10 md11>
                             <h3>{{comment.user.username}}
-                                <v-btn v-if="isLoggedAsAdmin" color="primary" absolute small fab right style="z-index:1;width:auto;height:auto">
+                                <v-btn @click="removeComment(comment)" v-if="isLoggedAsAdmin" color="primary" absolute small fab right style="z-index:1;width:auto;height:auto">
                                     <v-icon>close</v-icon>
                                 </v-btn></h3>
                             <v-container>

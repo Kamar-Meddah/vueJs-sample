@@ -21,6 +21,13 @@ export default class SigninComponent extends Vue {
         this.loading = false;
     }
 
+    public mounted() {
+        if (this.$store.getters.isLogged) {
+            this.$router.push('/user/home/');
+            alert('Warning: Already Logged');
+        }
+    }
+
     public checkPassword(input: string): string | boolean {
         if (input.length === 0) {
             return 'Required';
@@ -49,6 +56,7 @@ export default class SigninComponent extends Vue {
             this.authService.signin(this.username, this.password).then((res) => {
                 if (res.data.token) {
                     this.$store.dispatch('login', res.data.token);
+                    this.$router.push('/user/home');
                 }
                 alert(res.data.message);
             });

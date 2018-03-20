@@ -10,5 +10,4 @@
     @Component({})
     export default class GuestComponent extends Vue {
     }
-
 </script>

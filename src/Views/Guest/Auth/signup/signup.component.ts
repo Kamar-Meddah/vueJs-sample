@@ -26,6 +26,13 @@ export default class SignupComponent extends Vue {
         this.loading = false;
     }
 
+    public mounted() {
+        if (this.$store.getters.isLogged) {
+            this.$router.push('/user/home/');
+            alert('Warning: Already Logged');
+        }
+    }
+
     public checkPassword(input: string): string | boolean {
         if (input.length === 0) {
             return 'Required';

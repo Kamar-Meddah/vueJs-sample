@@ -1,11 +1,9 @@
 <div class="app">
     <v-app>
-        <navbar></navbar>
+        <navbar :key="$route.fullPath"></navbar>
         <v-content>
             <v-container grid-list-xs>
-                <transition name="route" mode="out-in" appear>
-                    <router-view></router-view>
-                </transition>
+                <router-view></router-view>
             </v-container>
         </v-content>
         <foot></foot>

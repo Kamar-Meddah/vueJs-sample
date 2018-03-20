@@ -1,7 +1,5 @@
 @import '~material-design-icons/iconfont/material-icons.css';
 @import '~vuetify/dist/vuetify.min.css';
-@import "~animate.css/source/zooming_entrances/zoomIn.css";
-@import "~animate.css/source/zooming_exits/zoomOut.css";
 @import "~@fancyapps/fancybox/dist/jquery.fancybox.min.css";
 .fancybox-button--share {
   display: none !important;
@@ -28,15 +26,6 @@
         transition: box-shadow .3s
       }
 
-    }
-  }
-
-  .route {
-    &-enter-active {
-      animation: zoomIn 0.5s;
-    }
-    &-leave-active {
-      animation: zoomOut 0.5;
     }
   }
 
