@@ -1,5 +1,5 @@
-import LoggedComponent from '@/Views/logged/logged.component.vue';
-import HomeComponent from '@/Views/logged/Home/home.component';
+import LoggedComponent from '@/Views/Logged/logged.component.vue';
+import HomeComponent from '@/Views/Logged/Home/home.component';
 
 const LoggedRouter = [
     {

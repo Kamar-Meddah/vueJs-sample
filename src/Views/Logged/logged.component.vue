@@ -1,6 +1,6 @@
 <template>
     <div class="logged">
-        <h1>loggedComponent</h1>
+        <router-view></router-view>
     </div>
 </template>
 <script lang="ts">

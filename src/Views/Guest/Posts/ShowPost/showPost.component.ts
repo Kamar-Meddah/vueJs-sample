@@ -14,7 +14,7 @@ import AuthService from '@/Services/auth.service';
 @Component({})
 export default class ShowPostComponent extends Vue {
 
-    private post: PostInterface| null ;
+    private post: PostInterface | null;
     private postsService: PostsService;
     private commentsService: CommentsService;
     private authService: AuthService;
@@ -58,13 +58,13 @@ export default class ShowPostComponent extends Vue {
             this.commentsService.post(this.comment, id).then((res: AxiosResponse) => {
                 if (res.data.created) {
                     const userData: any = this.authService.decodeToken();
-                    this.comments.unshift(new CommentModel(this.comment, id, userData.sub, userData.iss));
+                    this.comments.unshift(new CommentModel(this.comment, id, userData.sub, userData.iss, res.data.id));
                     this.loading = false;
-                    alert('coments successfully posted');
+                    alert('Comments successfully posted');
                     this.comment = '';
                 }
             }).catch((err: AxiosError) => {
-                alert('no internet connection');
+                alert('No internet connection');
             });
         }
     }
@@ -86,19 +86,21 @@ export default class ShowPostComponent extends Vue {
     }
 
     public removeComment(value: CommentInterface): void {
-        this.loading = true;
-        this.commentsService.delete(value.id as number).then((res: AxiosResponse) => {
-            this.loading = false;
-            if (res.data.deleted) {
-                this.comments = this.comments.filter((item: CommentInterface) => item !== value);
-                alert('comments successfully deleted');
-            } else {
-                alert('une erreur est survenue');
-            }
+        if (confirm('Est ce que vous etes sur!')) {
+            this.loading = true;
+            this.commentsService.delete(value.id as number).then((res: AxiosResponse) => {
+                this.loading = false;
+                if (res.data.deleted) {
+                    this.comments = this.comments.filter((item: CommentInterface) => item !== value);
+                    alert('Comments successfully deleted');
+                } else {
+                    alert('Une erreur est survenue');
+                }
 
-        }).catch((err: AxiosError) => {
-            alert('no internet connection');
-        });
+            }).catch((err: AxiosError) => {
+                alert('no internet connection');
+            });
+        }
     }
 }
 

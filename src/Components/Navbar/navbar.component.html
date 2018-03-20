@@ -1,5 +1,5 @@
 <div class="navbar" id="app">
-    <v-navigation-drawer fixed v-model="drawer" temporary >
+    <v-navigation-drawer fixed v-model="drawer" temporary>
         <v-toolbar dark color="primary" flat>
             <v-toolbar-title>Options</v-toolbar-title>
         </v-toolbar>
@@ -9,6 +9,8 @@
             </v-text-field>
         </v-container>
         <v-list dense>
+
+            <!-- guest template -->
             <v-list-tile v-if="!isLogged">
                 <v-list-tile-title>
                     <router-link :to="{name:'signin'}" style="color:black"><span><v-icon>lock</v-icon> Sign in</span>
@@ -21,18 +23,42 @@
                     </router-link>
                 </v-list-tile-title>
             </v-list-tile>
+            <!-- end guest template -->
+
+            <!-- logged template -->
             <v-list-tile v-if="isLogged">
                 <v-list-tile-title>
-                    <router-link :to="{name:'signup'}" style="color:black"><span>Profile</span>
+                    <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>home</v-icon> Profile</span>
+                    </router-link>
+                </v-list-tile-title>
+            </v-list-tile>
+            <v-list-tile v-if="isLogged">
+                <v-list-tile-title >
+                    <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>home</v-icon> EditCategories</span>
                     </router-link>
                 </v-list-tile-title>
             </v-list-tile>
             <v-list-tile v-if="isLogged">
                 <v-list-tile-title>
-                    <router-link :to="{name:'signup'}" style="color:black"><span>Edit Categories</span>
+                    <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>home</v-icon> EditPosts</span>
                     </router-link>
                 </v-list-tile-title>
             </v-list-tile>
+            <v-list-tile>
+                <v-list-tile-title v-if="isLogged">
+                    <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>home</v-icon> EditUser</span>
+                    </router-link>
+                </v-list-tile-title>
+            </v-list-tile>
+            <br>
+            <v-divider></v-divider>
+            <v-list-tile v-if="isLogged">
+                <v-list-tile-title>
+                    <span @click.prevent="logout()"><v-icon>home</v-icon>Logout</span>
+                </v-list-tile-title>
+            </v-list-tile>
+            <!-- logged template -->
+
         </v-list>
     </v-navigation-drawer>
 
@@ -65,7 +91,32 @@
             <v-list>
                 <v-list-tile>
                     <v-list-tile-title>
-                       <span @click.prevent="logout()"><v-icon>home</v-icon>Logout</span>
+                        <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>home</v-icon> Profile</span>
+                        </router-link>
+                    </v-list-tile-title>
+                </v-list-tile>
+                <v-list-tile>
+                    <v-list-tile-title>
+                        <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>home</v-icon> EditCategories</span>
+                        </router-link>
+                    </v-list-tile-title>
+                </v-list-tile>
+                <v-list-tile>
+                    <v-list-tile-title>
+                        <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>home</v-icon> EditPosts</span>
+                        </router-link>
+                    </v-list-tile-title>
+                </v-list-tile>
+                <v-list-tile>
+                    <v-list-tile-title>
+                        <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>home</v-icon> EditUser</span>
+                        </router-link>
+                    </v-list-tile-title>
+                </v-list-tile>
+                <v-divider></v-divider>
+                <v-list-tile>
+                    <v-list-tile-title>
+                        <span @click.prevent="logout()"><v-icon>home</v-icon>Logout</span>
                     </v-list-tile-title>
                 </v-list-tile>
             </v-list>
