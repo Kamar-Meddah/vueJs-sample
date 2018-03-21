@@ -2,6 +2,7 @@ import {AxiosPromise} from 'axios';
 import {HTTP} from '@/Services/http-common';
 import CommentModel from '@/Models/comment.model';
 import ServicesFactory from '@/Services/services.factory';
+import CommentInterface from '@/Models/CommentInterface';
 
 export default class CommentsService {
 
@@ -18,7 +19,7 @@ export default class CommentsService {
         return this.http.post(`/comments/post`, new CommentModel(comment, post_id, user_id));
     }
 
-    public findAll(id: number): AxiosPromise<any> {
+    public findAll(id: number): AxiosPromise<CommentInterface[]> {
         return this.http.get(`comments/post/${id}`);
     }
 

@@ -2,6 +2,7 @@ import PostsService from '@/Services/posts.service';
 import CategoriesService from '@/Services/categories.service';
 import CommentsService from '@/Services/comments.service';
 import AuthService from '@/Services/auth.service';
+import UsersService from '@/Services/users.service';
 
 export default class ServicesFactory {
 
@@ -17,6 +18,7 @@ export default class ServicesFactory {
     private categoriesService: CategoriesService | undefined;
     private authService: AuthService | undefined;
     private commentsService: CommentsService | undefined;
+    private usersService: UsersService | undefined;
 
     private constructor() {
     }
@@ -48,5 +50,13 @@ export default class ServicesFactory {
         }
         return this.authService;
     }
+
+    public getUsersService(): UsersService {
+        if (this.usersService === undefined) {
+            this.usersService = new UsersService();
+        }
+        return this.usersService;
+    }
+
 
 }

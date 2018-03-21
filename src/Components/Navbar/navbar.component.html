@@ -28,12 +28,12 @@
             <!-- logged template -->
             <v-list-tile v-if="isLogged">
                 <v-list-tile-title>
-                    <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>home</v-icon> Profile</span>
+                    <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>person</v-icon> Profile</span>
                     </router-link>
                 </v-list-tile-title>
             </v-list-tile>
             <v-list-tile v-if="isLogged">
-                <v-list-tile-title >
+                <v-list-tile-title>
                     <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>home</v-icon> EditCategories</span>
                     </router-link>
                 </v-list-tile-title>
@@ -46,7 +46,7 @@
             </v-list-tile>
             <v-list-tile>
                 <v-list-tile-title v-if="isLogged">
-                    <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>home</v-icon> EditUser</span>
+                    <router-link :to="{name:'user_setting_password'}" style="color:black"><span><v-icon>home</v-icon> EditUser</span>
                     </router-link>
                 </v-list-tile-title>
             </v-list-tile>
@@ -91,7 +91,7 @@
             <v-list>
                 <v-list-tile>
                     <v-list-tile-title>
-                        <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>home</v-icon> Profile</span>
+                        <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>person</v-icon> Profile</span>
                         </router-link>
                     </v-list-tile-title>
                 </v-list-tile>
@@ -103,13 +103,13 @@
                 </v-list-tile>
                 <v-list-tile>
                     <v-list-tile-title>
-                        <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>home</v-icon> EditPosts</span>
+                        <router-link :to="{name:'user_setting_password'}" style="color:black"><span><v-icon>home</v-icon> EditPosts</span>
                         </router-link>
                     </v-list-tile-title>
                 </v-list-tile>
                 <v-list-tile>
                     <v-list-tile-title>
-                        <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>home</v-icon> EditUser</span>
+                        <router-link :to="{name:'user_setting_password'}" style="color:black"><span><v-icon>home</v-icon> EditUser</span>
                         </router-link>
                     </v-list-tile-title>
                 </v-list-tile>
@@ -131,5 +131,5 @@
                           @keyup.enter="search"></v-text-field>
         </v-toolbar-items>
     </v-toolbar>
-    <br><br><br>
+    <br><br><br><br>
 </div>

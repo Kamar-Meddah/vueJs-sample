@@ -1,5 +1,6 @@
 import {AxiosPromise} from 'axios';
 import {HTTP} from '@/Services/http-common';
+import CategoryInterface from '@/Models/CategoryInterface';
 
 export default class CatgeoriesService {
 
@@ -7,7 +8,7 @@ export default class CatgeoriesService {
         // this.http.defaults.headers.common['Authorization'] = AUTH_TOKEN;
     }
 
-    public all(): AxiosPromise<any> {
+    public all(): AxiosPromise<CategoryInterface[]> {
         return this.http.get(`/categories/all`);
     }
 

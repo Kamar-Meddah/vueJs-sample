@@ -4,7 +4,7 @@ import './class-component-hooks';
 
 import GuestRouter from '@/Views/Guest/GuestRouter';
 import NotfoundComponent from '@/Views/notfound/notfound.component';
-import LoggedRouter from '@/Views/Logged/LoggedRouter';
+import LoggedRouter from '@/Views/User/UserRouter';
 
 Vue.use(Router);
 
