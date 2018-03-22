@@ -1,6 +1,6 @@
-import LoggedComponent from '@/Views/User/user.component.vue';
-import HomeComponent from '@/Views/User/Home/home.component';
-import SettingRouter from '@/Views/User/Setting/SettingRouter';
+import LoggedComponent from '@/Components/User/user.component.vue';
+import HomeComponent from '@/Components/User/Home/home.component';
+import SettingRouter from '@/Components/User/Setting/SettingRouter';
 
 const UserRouter = [
     {

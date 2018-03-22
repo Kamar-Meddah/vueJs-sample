@@ -5,7 +5,6 @@ import PostInterface from '@/Models/PostInterface';
 export default class PostsService {
 
     public constructor(private http = HTTP) {
-        // this.http.defaults.headers.common['Authorization'] = AUTH_TOKEN;
     }
 
     public all(page: number): AxiosPromise<any> {

@@ -1,8 +1,8 @@
-import PostsComponent from '@/Views/Guest/Posts/posts.component.vue';
-import HomeComponent from '@/Views/Guest/Posts/Home/home.component';
-import PostsByCategoryComponent from '@/Views/Guest/Posts/postsByCategory/postsByCategory.component';
-import SearchComponent from '@/Views/Guest/Posts/Search/search.component';
-import ShowPostComponent from '@/Views/Guest/Posts/ShowPost/showPost.component';
+import PostsComponent from '@/Components/Guest/Posts/posts.component.vue';
+import HomeComponent from '@/Components/Guest/Posts/Home/home.component';
+import PostsByCategoryComponent from '@/Components/Guest/Posts/postsByCategory/postsByCategory.component';
+import SearchComponent from '@/Components/Guest/Posts/Search/search.component';
+import ShowPostComponent from '@/Components/Guest/Posts/ShowPost/showPost.component';
 
 const PostsRoute = [{
     path: '',

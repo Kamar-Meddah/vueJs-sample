@@ -1,6 +1,6 @@
 import PostsRouter from './Posts/PostsRouter';
 import AuthRouter from './Auth/AuthRouter';
-import GuestComponent from '@/Views/Guest/guest.component.vue';
+import GuestComponent from '@/Components/Guest/guest.component.vue';
 
 const GuestRouter = [
     {

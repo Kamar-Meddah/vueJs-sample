@@ -2,9 +2,9 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import './class-component-hooks';
 
-import GuestRouter from '@/Views/Guest/GuestRouter';
-import NotfoundComponent from '@/Views/notfound/notfound.component';
-import LoggedRouter from '@/Views/User/UserRouter';
+import GuestRouter from '@/Components/Guest/GuestRouter';
+import NotfoundComponent from '@/Components/notfound/notfound.component';
+import LoggedRouter from '@/Components/User/UserRouter';
 
 Vue.use(Router);
 

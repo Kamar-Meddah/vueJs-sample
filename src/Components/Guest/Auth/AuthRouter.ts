@@ -1,6 +1,6 @@
-import AuthComponent from '@/Views/Guest/Auth/auth.component.vue';
-import SigninComponent from '@/Views/Guest/Auth/signin/signin.component';
-import SignupComponent from '@/Views/Guest/Auth/signup/signup.component';
+import AuthComponent from '@/Components/Guest/Auth/auth.component.vue';
+import SigninComponent from '@/Components/Guest/Auth/signin/signin.component';
+import SignupComponent from '@/Components/Guest/Auth/signup/signup.component';
 
 const AuthRoute = [{
     path: '/auth',

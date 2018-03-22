@@ -17,14 +17,14 @@ export default class AuthService {
         return this.http.post(`auth/login`, new UserModel(username, password));
     }
 
-    public checkToken(token: string | null): AxiosPromise {
-        return this.http.post('auth/check', {token});
+    public checkToken(): AxiosPromise {
+        return this.http.post('auth/check', {token: this.store.getters.token});
     }
 
     public decodeToken(): any {
         try {
             return jwtDecode(this.store.getters.token);
-        } catch (e: Error) {
+        } catch (e) {
             return null;
         }
     }

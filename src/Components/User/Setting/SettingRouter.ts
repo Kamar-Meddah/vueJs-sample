@@ -1,5 +1,5 @@
-import SettingComponent from '@/Views/User/Setting/setting.component.vue';
-import PasswordEditComponent from '@/Views/User/Setting/passwordEdit/passwordEdit.component';
+import SettingComponent from '@/Components/User/Setting/setting.component.vue';
+import PasswordEditComponent from '@/Components/User/Setting/passwordEdit/passwordEdit.component';
 
 const SettingRouter = [
     {

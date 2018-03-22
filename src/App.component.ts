@@ -22,7 +22,7 @@ export default class AppComponent extends Vue {
         super();
         this.authService = ServicesFactory.getInstance().getAuthService();
         if (this.$store.getters.isLogged) {
-            this.authService.checkToken(localStorage.getItem('token')).then((res) => {
+            this.authService.checkToken().then((res) => {
                 if (!res.data.valid) {
                     this.$store.dispatch('logout');
                 }
