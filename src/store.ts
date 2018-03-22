@@ -1,30 +1,35 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import ServicesFactory from '@/Services/services.factory';
+import * as JwtDecode from 'jwt-decode';
+import UserInterface from '@/Models/UserInterface';
 
-const authService = ServicesFactory.getInstance().getAuthService();
 Vue.use(Vuex);
 
 const states = {
     IS_LOGGED: !!localStorage.getItem('token'),
-    IS_LOGGED_AS_ADMIN: authService.isAdmin(),
+    TOKEN: localStorage.getItem('token'),
+    IS_LOGGED_AS_ADMIN:
+        localStorage.getItem('token') === null ?
+            false : (JwtDecode(localStorage.getItem('token') as string) as UserInterface).role === 'admin',
 };
 
 const mutations = {
-    LOGIN: (state: any) => {
+    LOGIN: (state: any, token: string) => {
         state.IS_LOGGED = true;
-        state.IS_LOGGED_AS_ADMIN = authService.isAdmin();
+        state.IS_LOGGED_AS_ADMIN = (JwtDecode(token) as UserInterface).role === 'admin';
+        state.TOKEN = token;
     },
     LOGOUT: (state: any) => {
         state.IS_LOGGED = false;
         state.IS_LOGGED_AS_ADMIN = false;
+        state.TOKEN = null;
     },
 };
 
 const actions = {
     login: (store: any, token: string) => {
         localStorage.setItem('token', token);
-        store.commit('LOGIN');
+        store.commit('LOGIN', token);
     },
     logout: (store: any) => {
         localStorage.clear();
@@ -38,6 +43,9 @@ const getters = {
     },
     isAdmin: (state: any) => {
         return state.IS_LOGGED_AS_ADMIN;
+    },
+    token: (state: any) => {
+        return state.TOKEN;
     },
 };
 

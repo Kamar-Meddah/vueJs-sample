@@ -2,11 +2,11 @@ import {AxiosPromise} from 'axios';
 import {HTTP} from '@/Services/http-common';
 import UserModel from '@/Models/user.model';
 import jwtDecode from 'jwt-decode';
+import Store from '@/store';
 
 export default class AuthService {
 
-    public constructor(private http = HTTP) {
-        // this.http.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+    public constructor(private http = HTTP, private store = Store) {
     }
 
     public signup(username: string, password: string, email: string): AxiosPromise<{ created: boolean | string }> {
@@ -22,19 +22,24 @@ export default class AuthService {
     }
 
     public decodeToken(): any {
-        if (localStorage.getItem('token') !== null) {
-            return jwtDecode(localStorage.getItem('token') as string);
-        } else {
-            return {role: null};
+        try {
+            return jwtDecode(this.store.getters.token);
+        } catch (e: Error) {
+            return null;
         }
     }
 
-    public isAdmin(): boolean {
-        return this.decodeToken().role === 'admin';
+    public isLogged(): boolean {
+        return this.store.getters.token !== null;
     }
 
-    public isLogged(): boolean {
-        return localStorage.getItem('token') !== null;
+    public logout(): AxiosPromise<{ disconnected: boolean }> {
+        this.setAuthorisation();
+        return this.http.put('auth/logout');
+    }
+
+    private setAuthorisation(): void {
+        this.http.defaults.headers.common.Authorization = this.store.getters.token;
     }
 
 

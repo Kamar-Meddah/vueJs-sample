@@ -4,6 +4,6 @@ import {Config} from '@/Config/Config';
 export const HTTP = axios.create({
     baseURL: `${Config.HOST}/Api`,
     headers: {
-       // Authorization: 'Bearer {token}'
+       // Authorization: localStorage.getItem('token'),
     },
 });

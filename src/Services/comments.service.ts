@@ -3,14 +3,12 @@ import {HTTP} from '@/Services/http-common';
 import CommentModel from '@/Models/comment.model';
 import ServicesFactory from '@/Services/services.factory';
 import CommentInterface from '@/Models/CommentInterface';
+import Store from '@/store';
 
 export default class CommentsService {
 
 
-    private static instance: CommentsService;
-
-    public constructor(private http = HTTP) {
-
+    public constructor(private http = HTTP, private store = Store) {
     }
 
     public post(comment: string, post_id: number): AxiosPromise<any> {
@@ -29,10 +27,6 @@ export default class CommentsService {
     }
 
     private setAuthorisation(): void {
-        if (localStorage.getItem('token') !== null) {
-            this.http.defaults.headers.common.Authorization = localStorage.getItem('token');
-        } else {
-            this.http.defaults.headers.common.Authorization = null;
-        }
+        this.http.defaults.headers.common.Authorization = this.store.getters.token;
     }
 }

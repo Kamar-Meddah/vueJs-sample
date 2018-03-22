@@ -1,9 +1,10 @@
 import {HTTP} from '@/Services/http-common';
 import {AxiosPromise} from 'axios';
+import Store from '@/store';
 
 export default class UsersService {
 
-    public constructor(private http = HTTP) {
+    public constructor(private http = HTTP, private store = Store) {
     }
 
     public editPassword(newPassword: string, oldPassword: string): AxiosPromise {
@@ -12,11 +13,7 @@ export default class UsersService {
     }
 
     private setAuthorisation(): void {
-        if (localStorage.getItem('token') !== null) {
-            this.http.defaults.headers.common.Authorization = localStorage.getItem('token');
-        } else {
-            this.http.defaults.headers.common.Authorization = null;
-        }
+        this.http.defaults.headers.common.Authorization = this.store.getters.token;
     }
 
 }
