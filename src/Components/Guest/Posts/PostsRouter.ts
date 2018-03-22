@@ -19,12 +19,12 @@ const PostsRoute = [{
             component: SearchComponent,
         },
         {
-            path: '/:title([A-z]+)/:id(\\d+)/:page(\\d+)?',
+            path: '/:title([A-z\-]+)/:id(\\d+)/:page(\\d+)?',
             name: 'postsByCategory',
             component: PostsByCategoryComponent,
         },
         {
-            path: '/:category([A-z]+)/:title([\-A-z0-9]+)/:id(\\d+)',
+            path: '/:category([A-z]+\-)/:title([\-A-z0-9]+)/:id(\\d+)',
             name: 'showPost',
             component: ShowPostComponent,
         },

@@ -1,0 +1,56 @@
+<div class="home">
+    <v-card>
+        <v-card-title primaryTitle>
+            <h1 class="display-2">Categories</h1>
+        </v-card-title>
+        <v-card-text>
+
+            <v-dialog v-model="dialog" max-width="500px">
+                <v-btn color="success" dark slot="activator" class="mb-2" @click="formTitle = 'New Category'"><v-icon left>create_new_folder</v-icon>  New Category</v-btn>
+                <v-card>
+                    <v-card-title>
+                        <span class="headline"> {{formTitle}} </span>
+                    </v-card-title>
+                    <v-card-text>
+                        <v-container grid-list-xl>
+                            <v-layout wrap>
+                                <v-flex>
+                                    <v-text-field required :rules="[checkTitle]" data-vv-name="title" label="Category Title" v-model="title"></v-text-field>
+                                </v-flex>
+                            </v-layout>
+                        </v-container>
+                    </v-card-text>
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn data-title="cancel" color="blue darken-1" flat @click.native="cancel">Cancel</v-btn>
+                        <v-btn data-title="save" color="blue darken-1" flat @click.native="save()">Save</v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
+
+
+            <v-container grid-list-xl>
+                <v-data-table
+                        :headers="headers"
+                        :items="categories"
+                        hide-actions
+                        class="elevation-1"
+                        :loading="loading"
+                >
+                    <v-progress-linear slot="progress" color="blue" height="5" indeterminate></v-progress-linear>
+                    <template slot="items" slot-scope="props">
+                        <td>{{ props.item.id }}</td>
+                        <td class="text-xs-left">{{ props.item.title }}</td>
+                        <td class="text-xs-center">
+                            <v-btn color="warning" small fab @click.prevent="edit(props.item)"><v-icon>mode_edit</v-icon></v-btn>
+                            <v-btn color="error" small fab @click.prevent="remove(props.item)"><v-icon>delete_forever</v-icon></v-btn>
+                        </td>
+                    </template>
+                </v-data-table>
+                <div class="text-xs-center pt-2">
+                    <v-pagination v-model="currentPage" :length="totaPage" @input="updateData($event)"></v-pagination>
+                </div>
+            </v-container>
+        </v-card-text>
+    </v-card>
+</div>

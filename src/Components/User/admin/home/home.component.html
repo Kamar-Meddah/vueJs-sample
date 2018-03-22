@@ -1,0 +1,34 @@
+<div class="home">
+    <v-card>
+        <v-card-title primaryTitle>
+            <h1 class="display-2">Administration</h1>
+        </v-card-title>
+        <v-card-text>
+            <v-container grid-list-xl class="text-xs-center">
+                <v-layout row wrap>
+                    <v-flex xs12 sm6 md4>
+                        <router-link :to="{name:'user_home'}">
+                            <v-icon color="primary" size="20em">home</v-icon>
+                            <br>
+                            <h2 class="display-1">Profile</h2>
+                        </router-link>
+                    </v-flex>
+                    <v-flex xs12 sm6 md4>
+                        <router-link :to="{name: 'admin_categories_home'}">
+                            <v-icon color="primary" size="20em">folder</v-icon>
+                            <br>
+                            <h2 class="display-1">Categories</h2>
+                        </router-link>
+                    </v-flex>
+                    <v-flex xs12 sm6 md4>
+                        <router-link to=''>
+                            <v-icon color="primary" size="20em">assignment</v-icon>
+                            <br>
+                            <h2 class="display-1">Posts</h2>
+                        </router-link>
+                    </v-flex>
+                </v-layout>
+            </v-container>
+        </v-card-text>
+    </v-card>
+</div>

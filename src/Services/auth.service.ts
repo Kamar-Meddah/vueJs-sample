@@ -33,6 +33,10 @@ export default class AuthService {
         return this.store.getters.token !== null;
     }
 
+    public isAdmin(): boolean {
+        return this.store.getters.isLogged === true;
+    }
+
     public logout(): AxiosPromise<{ disconnected: boolean }> {
         this.setAuthorisation();
         return this.http.put('auth/logout');

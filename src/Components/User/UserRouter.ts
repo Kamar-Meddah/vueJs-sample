@@ -1,11 +1,13 @@
-import LoggedComponent from '@/Components/User/user.component.vue';
+import UserComponent from '@/Components/User/user.component.vue';
 import HomeComponent from '@/Components/User/Home/home.component';
 import SettingRouter from '@/Components/User/Setting/SettingRouter';
+import AdminRouter from '@/Components/User/admin/AdminRouter';
 
 const UserRouter = [
     {
         path: '/user',
-        component: LoggedComponent,
+        component: UserComponent,
+        name: 'user',
         children: [
             {
                 path: 'home',
@@ -13,6 +15,7 @@ const UserRouter = [
                 component: HomeComponent,
             },
             ...SettingRouter,
+            ...AdminRouter,
         ],
     },
 ];
