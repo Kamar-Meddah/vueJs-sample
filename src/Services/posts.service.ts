@@ -35,10 +35,13 @@ export default class PostsService {
         return this.http.delete(`posts/${id}`);
     }
 
+    public create(formData: FormData): AxiosPromise<any> {
+        this.setAuthorisation();
+        return this.http.post(`posts/`, formData);
+    }
+
     private setAuthorisation(): void {
         this.http.defaults.headers.common.Authorization = this.store.getters.token;
     }
-
-
 
 }

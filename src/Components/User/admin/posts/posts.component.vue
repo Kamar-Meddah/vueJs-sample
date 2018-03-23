@@ -1,6 +1,5 @@
 <template>
     <div class="posts">
-        <h1>postsComponent</h1>
         <router-view></router-view>
     </div>
 </template>

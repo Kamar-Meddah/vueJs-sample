@@ -12,7 +12,7 @@
             </v-card-title>
             <v-subheader :key="post.id">
                 <router-link
-                        :to="{name:'postsByCategory',params:{id:post.category.id, title:post.category.title}}"
+                        :to="{name:'postsByCategory',params:{id:post.category.id, title:post.category.slug}}"
                         class="list__tile">
                     {{ post.category.title }}
                 </router-link>
@@ -23,8 +23,8 @@
                 <p v-html="post.content"></p>
                 <v-layout wrap>
                     <v-flex xs12 sm6 md4 lg3 v-for="image in post.images" :key="image.id">
-                        <a data-fancybox="gallery" :href="'http://localhost:8000/files/images/'+image.src">
-                            <img class="responsive img-thumbnail" :src="'http://localhost:8000/files/images/'+image.src" alt="f">
+                        <a data-fancybox="gallery" :href="'http://localhost:8000/'+image.src">
+                            <img class="responsive img-thumbnail" :src="'http://localhost:8000/'+image.src" alt="f">
                         </a>
                     </v-flex>
                 </v-layout>

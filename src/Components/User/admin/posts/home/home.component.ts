@@ -44,11 +44,11 @@ export default class HomeComponent extends Vue {
     }
 
     public edit(id: number): void {
-     //   console.log('edit', id);
+        this.$router.push(`/user/admin/posts/edit/${id}`);
     }
 
     public add(): void {
-      //  console.log('add');
+        this.$router.push('/user/admin/posts/add');
     }
 
     public remove(item: PostInterface): void {
@@ -84,4 +84,3 @@ export default class HomeComponent extends Vue {
     }
 
 }
-

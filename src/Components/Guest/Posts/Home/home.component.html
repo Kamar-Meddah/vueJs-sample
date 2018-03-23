@@ -9,7 +9,7 @@
                     <router-link :to="{
                                 name:'showPost',
                                     params:{
-                                        category: post.category.title,
+                                        category: post.category.slug,
                                         title: post.slug,
                                         id: post.id
                                     }
@@ -20,7 +20,7 @@
             </v-card-title>
             <v-subheader :key="post.id">
                 <router-link
-                        :to="{name:'postsByCategory',params:{id:post.category.id, title:post.category.title}}"
+                        :to="{name:'postsByCategory',params:{id:post.category.id, title:post.category.slug}}"
                         class="list__tile">
                     {{ post.category.title }}
                 </router-link>

@@ -1,0 +1,46 @@
+<div class="add">
+    <v-progress-linear :indeterminate="true" height="4" id="progress" :active="loading"></v-progress-linear>
+    <v-card>
+        <v-card-title>
+            <h1 class="display-2">
+                Add new Post
+            </h1>
+        </v-card-title>
+        <v-form v-model="valid" enctype="multipart/form-data">
+            <v-card-text>
+                <v-container grid-list-lg>
+                    <v-layout>
+                        <v-flex>
+                            <v-text-field name="title" :rules=[checkIsNotEmpty] v-model="title" label="Title"
+                                          required></v-text-field>
+                            <v-text-field name="content" multiLine :rules=[checkIsNotEmpty] v-model="content"
+                                          label="Content"
+                                          required></v-text-field>
+                            <v-select name="category"
+                                      :rules="[checkIsNotEmpty]"
+                                      :items="categories"
+                                      v-model="selectedCategory"
+                                      item-value="id"
+                                      item-text="title"
+                                      label="Select Categories"
+                                      autocomplete required></v-select>
+                            <input id="upload" name="files[]" type="file" multiple ref="file"
+                                   @change="updateFile($event)" style="display: none">
+                            <div class="text-xs-right">
+                                <v-badge color="red">
+                                    <span slot="badge">{{filesNumber}}</span>
+                                    <v-btn name="upload" color="primary" icon @click="clickFile()">
+                                        <v-icon>file_upload</v-icon>
+                                    </v-btn>
+                                    <br>
+                                    <v-btn name="submit" color="primary" @click.prevent="submit()">Submit
+                                    </v-btn>
+                                </v-badge>
+                            </div>
+                        </v-flex>
+                    </v-layout>
+                </v-container>
+            </v-card-text>
+        </v-form>
+    </v-card>
+</div>

@@ -6,6 +6,8 @@
         <v-card-text>
 
             <v-container grid-list-xl>
+                <v-btn color="success" @click="add()">Add new Post</v-btn>
+                <br>
                 <v-data-table
                         :headers="headers"
                         :items="posts"

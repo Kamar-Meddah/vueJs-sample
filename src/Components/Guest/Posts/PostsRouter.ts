@@ -14,17 +14,17 @@ const PostsRoute = [{
             component: HomeComponent,
         },
         {
-            path: '/search/:query([A-z0-9]+)/:page(\\d+)?',
+            path: '/search/:query([A-z0-9-.]+)/:page(\\d+)?',
             name: 'SearchComponent',
             component: SearchComponent,
         },
         {
-            path: '/:title([A-z\-]+)/:id(\\d+)/:page(\\d+)?',
+            path: '/:title([A-z0-9-.]+)/:id(\\d+)/:page(\\d+)?',
             name: 'postsByCategory',
             component: PostsByCategoryComponent,
         },
         {
-            path: '/:category([A-z]+\-)/:title([\-A-z0-9]+)/:id(\\d+)',
+            path: '/:category([A-z0-9-.]+)/:title([A-z0-9-.]+)/:id(\\d+)',
             name: 'showPost',
             component: ShowPostComponent,
         },

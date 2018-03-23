@@ -8,7 +8,7 @@ import ServicesFactory from '@/Services/services.factory';
 export default class CategoriesComponent extends Vue {
 
     private categoriesService: CatgeoriesService;
-    private categories?: CategoryInterface [];
+    private categories: CategoryInterface [];
 
     constructor() {
         super();

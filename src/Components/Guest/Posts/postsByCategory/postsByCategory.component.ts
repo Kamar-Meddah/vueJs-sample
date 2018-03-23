@@ -19,14 +19,15 @@ import ServicesFactory from '@/Services/services.factory';
     },
 })
 export default class PostsByCategoryComponent extends Vue {
-    protected posts?: PostInterface[];
-    protected currentPage: number;
-    protected totaPage: number;
-    protected perPage: number;
-    protected id: number;
-    protected loading: boolean;
-    protected title: string;
 
+    private posts?: PostInterface[];
+    private currentPage: number;
+    private totaPage: number;
+    private perPage: number;
+    private id: number;
+    private loading: boolean;
+    private title: string;
+    private slug: string;
     private postsService: PostsService;
 
     constructor() {
@@ -38,6 +39,7 @@ export default class PostsByCategoryComponent extends Vue {
         this.perPage = 10;
         this.loading = true;
         this.title = '';
+        this.slug = '';
         this.id = 1;
     }
 
@@ -51,7 +53,7 @@ export default class PostsByCategoryComponent extends Vue {
     }
 
     public paginate(page: number): void {
-        this.$router.push(`/${this.title}/${this.id}/${page}`);
+        this.$router.push(`/${this.slug}/${this.id}/${page}`);
     }
 
     private getPosts(): void {
@@ -61,6 +63,7 @@ export default class PostsByCategoryComponent extends Vue {
                 //  this.$router.push('/notfound');
             } else {
                 this.title = post.data.data[0].category.title;
+                this.slug = post.data.data[0].category.slug;
                 this.totaPage = post.data.last_page as number;
                 this.perPage = post.data.per_page as number;
                 this.posts = SetAbstract(post.data.data);
