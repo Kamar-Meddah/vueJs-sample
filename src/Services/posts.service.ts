@@ -1,14 +1,21 @@
 import {AxiosPromise} from 'axios';
 import {HTTP} from '@/Services/http-common';
+import Store from '@/store';
+
 import PostInterface from '@/Models/PostInterface';
 
 export default class PostsService {
 
-    public constructor(private http = HTTP) {
+    public constructor(private http = HTTP, private store = Store) {
+    }
+
+    public last(page: number): AxiosPromise<any> {
+        return this.http.get(`/posts/last/${page}`);
     }
 
     public all(page: number): AxiosPromise<any> {
-        return this.http.get(`/posts/last/${page}`);
+        this.setAuthorisation();
+        return this.http.get(`/posts/all/${page}`);
     }
 
     public findByCategory(id: number, page: number): AxiosPromise<any> {
@@ -22,5 +29,16 @@ export default class PostsService {
     public find(id: number): AxiosPromise<PostInterface> {
         return this.http.get(`posts/find/${id}`);
     }
+
+    public remove(id: number): AxiosPromise<any> {
+        this.setAuthorisation();
+        return this.http.delete(`posts/${id}`);
+    }
+
+    private setAuthorisation(): void {
+        this.http.defaults.headers.common.Authorization = this.store.getters.token;
+    }
+
+
 
 }

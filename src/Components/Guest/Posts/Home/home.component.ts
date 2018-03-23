@@ -50,7 +50,7 @@ export default class HomeComponent extends Vue {
 
     private getPosts(): void {
         this.loading = true;
-        this.postsService.all(this.currentPage).then((post: any) => {
+        this.postsService.last(this.currentPage).then((post: any) => {
             if (post.data.data.length === 0) {
                 //  this.$router.push('/notfound');
             } else {

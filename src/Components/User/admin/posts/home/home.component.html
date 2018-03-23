@@ -1,0 +1,33 @@
+<div class="home">
+    <v-card>
+        <v-card-title primaryTitle>
+            <h1 class="display-2">Categories</h1>
+        </v-card-title>
+        <v-card-text>
+
+            <v-container grid-list-xl>
+                <v-data-table
+                        :headers="headers"
+                        :items="posts"
+                        hide-actions
+                        class="elevation-1"
+                        :loading="loading"
+                >
+                    <v-progress-linear slot="progress" color="blue" height="5" indeterminate></v-progress-linear>
+                    <template slot="items" slot-scope="props">
+                        <td>{{ props.item.id }}</td>
+                        <td class="text-xs-left">{{ props.item.category.title }}</td>
+                        <td class="text-xs-left">{{ props.item.title }}</td>
+                        <td class="text-xs-center">
+                            <v-btn color="warning" small fab @click.prevent="edit(props.item.id)"><v-icon>mode_edit</v-icon></v-btn>
+                            <v-btn color="error" small fab @click.prevent="remove(props.item)"><v-icon>delete_forever</v-icon></v-btn>
+                        </td>
+                    </template>
+                </v-data-table>
+                <div class="text-xs-center pt-2">
+                    <v-pagination v-model="currentPage" :length="totaPage" @input="updateData($event)"></v-pagination>
+                </div>
+            </v-container>
+        </v-card-text>
+    </v-card>
+</div>
