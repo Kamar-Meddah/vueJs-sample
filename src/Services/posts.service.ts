@@ -40,6 +40,11 @@ export default class PostsService {
         return this.http.post(`posts/`, formData);
     }
 
+    public update(formData: FormData): AxiosPromise<any> {
+        this.setAuthorisation();
+        return this.http.post(`posts/update/`, formData);
+    }
+
     private setAuthorisation(): void {
         this.http.defaults.headers.common.Authorization = this.store.getters.token;
     }

@@ -9,6 +9,7 @@ export default class NavbarComponent extends Vue {
     protected drawer: boolean;
     protected searched: string;
     protected isLogged: boolean;
+    protected isAdmin: boolean;
     protected authService: AuthService;
 
     constructor() {
@@ -16,6 +17,7 @@ export default class NavbarComponent extends Vue {
         this.drawer = false;
         this.searched = '';
         this.isLogged = false;
+        this.isAdmin = false;
         this.authService = ServicesFactory.getInstance().getAuthService();
     }
 
@@ -32,6 +34,7 @@ export default class NavbarComponent extends Vue {
 
     private init(): void {
         this.isLogged = this.$store.getters.isLogged;
+        this.isAdmin = this.$store.getters.isAdmin;
     }
 
     private logout(): void {

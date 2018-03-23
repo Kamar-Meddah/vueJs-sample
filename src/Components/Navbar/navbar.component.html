@@ -32,15 +32,21 @@
                     </router-link>
                 </v-list-tile-title>
             </v-list-tile>
-            <v-list-tile v-if="isLogged">
+            <v-list-tile v-if="isAdmin">
                 <v-list-tile-title>
-                    <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>home</v-icon> EditCategories</span>
+                    <router-link :to="{name:'admin_home'}" style="color:black"><span><v-icon>home</v-icon> Administration</span>
                     </router-link>
                 </v-list-tile-title>
             </v-list-tile>
-            <v-list-tile v-if="isLogged">
+            <v-list-tile v-if="isAdmin">
                 <v-list-tile-title>
-                    <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>home</v-icon> EditPosts</span>
+                    <router-link :to="{name:'admin_categories_home'}" style="color:black"><span><v-icon>home</v-icon> EditCategories</span>
+                    </router-link>
+                </v-list-tile-title>
+            </v-list-tile>
+            <v-list-tile v-if="isAdmin">
+                <v-list-tile-title>
+                    <router-link :to="{name:'admin_posts_home'}" style="color:black"><span><v-icon>home</v-icon> EditPosts</span>
                     </router-link>
                 </v-list-tile-title>
             </v-list-tile>
@@ -65,62 +71,67 @@
     <v-toolbar fixed dark color="primary">
         <v-toolbar-side-icon class="hidden-md-and-up" @click="drawer=!drawer"></v-toolbar-side-icon>
 
-        <v-menu offset-y open-on-hover v-if="!isLogged">
+        <v-menu offset-y open-on-hover>
             <v-btn icon slot="activator" class="hidden-sm-and-down">
                 <v-icon>more_horiz</v-icon>
             </v-btn>
-            <v-list>
-                <v-list-tile>
+            <v-list dense>
+                <!-- guest template -->
+                <v-list-tile v-if="!isLogged">
                     <v-list-tile-title>
                         <router-link :to="{name:'signin'}" style="color:black"><span><v-icon>lock</v-icon> Sign in</span>
                         </router-link>
                     </v-list-tile-title>
                 </v-list-tile>
-                <v-list-tile>
+                <v-list-tile v-if="!isLogged">
                     <v-list-tile-title>
                         <router-link :to="{name:'signup'}" style="color:black"><span><v-icon>local_hospital</v-icon> Sign up</span>
                         </router-link>
                     </v-list-tile-title>
                 </v-list-tile>
-            </v-list>
-        </v-menu>
-        <v-menu offset-y open-on-hover v-if="isLogged">
-            <v-btn icon slot="activator" class="hidden-sm-and-down">
-                <v-icon>more_horiz</v-icon>
-            </v-btn>
-            <v-list>
-                <v-list-tile>
+                <!-- end guest template -->
+
+                <!-- logged template -->
+                <v-list-tile v-if="isLogged">
                     <v-list-tile-title>
                         <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>person</v-icon> Profile</span>
                         </router-link>
                     </v-list-tile-title>
                 </v-list-tile>
-                <v-list-tile>
+                <v-list-tile v-if="isAdmin">
                     <v-list-tile-title>
-                        <router-link :to="{name:'user_home'}" style="color:black"><span><v-icon>home</v-icon> EditCategories</span>
+                        <router-link :to="{name:'admin_home'}" style="color:black"><span><v-icon>home</v-icon> Administration</span>
+                        </router-link>
+                    </v-list-tile-title>
+                </v-list-tile>
+                <v-list-tile v-if="isAdmin">
+                    <v-list-tile-title>
+                        <router-link :to="{name:'admin_categories_home'}" style="color:black"><span><v-icon>home</v-icon> EditCategories</span>
+                        </router-link>
+                    </v-list-tile-title>
+                </v-list-tile>
+                <v-list-tile v-if="isAdmin">
+                    <v-list-tile-title>
+                        <router-link :to="{name:'admin_posts_home'}" style="color:black"><span><v-icon>home</v-icon> EditPosts</span>
                         </router-link>
                     </v-list-tile-title>
                 </v-list-tile>
                 <v-list-tile>
-                    <v-list-tile-title>
-                        <router-link :to="{name:'user_setting_password'}" style="color:black"><span><v-icon>home</v-icon> EditPosts</span>
-                        </router-link>
-                    </v-list-tile-title>
-                </v-list-tile>
-                <v-list-tile>
-                    <v-list-tile-title>
+                    <v-list-tile-title v-if="isLogged">
                         <router-link :to="{name:'user_setting_password'}" style="color:black"><span><v-icon>home</v-icon> EditUser</span>
                         </router-link>
                     </v-list-tile-title>
                 </v-list-tile>
                 <v-divider></v-divider>
-                <v-list-tile>
+                <v-list-tile v-if="isLogged">
                     <v-list-tile-title>
                         <span @click.prevent="logout()"><v-icon>home</v-icon>Logout</span>
                     </v-list-tile-title>
                 </v-list-tile>
+                <!-- logged template -->
             </v-list>
         </v-menu>
+
         <router-link :to="{name:'home',params:{page: '1'}}">
             <v-toolbar-title class="white--text">Blog</v-toolbar-title>
         </router-link>

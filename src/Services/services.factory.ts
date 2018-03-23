@@ -3,6 +3,7 @@ import CategoriesService from '@/Services/categories.service';
 import CommentsService from '@/Services/comments.service';
 import AuthService from '@/Services/auth.service';
 import UsersService from '@/Services/users.service';
+import ImagesService from '@/Services/images.service';
 
 export default class ServicesFactory {
 
@@ -19,6 +20,7 @@ export default class ServicesFactory {
     private authService: AuthService | undefined;
     private commentsService: CommentsService | undefined;
     private usersService: UsersService | undefined;
+    private imagesService: ImagesService | undefined;
 
     private constructor() {
     }
@@ -56,6 +58,13 @@ export default class ServicesFactory {
             this.usersService = new UsersService();
         }
         return this.usersService;
+    }
+
+    public getImagesService(): ImagesService {
+        if (this.imagesService === undefined) {
+            this.imagesService = new ImagesService();
+        }
+        return this.imagesService;
     }
 
 
