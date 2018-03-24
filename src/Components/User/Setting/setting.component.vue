@@ -8,7 +8,11 @@
     import Vue from 'vue';
     import Component from 'vue-class-component';
 
-    @Component({})
+    @Component({
+        metaInfo: {
+            title: 'Setting',
+        },
+    })
     export default class SettingComponent extends Vue {
     }
 </script>

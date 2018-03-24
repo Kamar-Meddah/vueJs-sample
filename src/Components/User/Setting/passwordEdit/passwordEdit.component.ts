@@ -4,7 +4,11 @@ import UsersService from '@/Services/users.service';
 import ServicesFactory from '@/Services/services.factory';
 import {AxiosError, AxiosResponse} from 'axios';
 
-@Component({})
+@Component({
+    metaInfo: {
+        title: 'Edit Password',
+    },
+})
 export default class PasswordEditComponent extends Vue {
 
     private newPassword: string;

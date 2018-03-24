@@ -5,7 +5,11 @@ import ServicesFactory from '@/Services/services.factory';
 import CategoryInterface from '@/Models/CategoryInterface';
 import {AxiosError, AxiosResponse} from 'axios';
 
-@Component({})
+@Component({
+    metaInfo: {
+        title: 'Edit Categories',
+    },
+})
 export default class HomeComponent extends Vue {
 
     private categoriesService: CategoriesService;

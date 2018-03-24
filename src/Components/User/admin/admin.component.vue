@@ -10,7 +10,11 @@
     import ServicesFactory from '../../../Services/services.factory';
     import {Route} from 'vue-router';
 
-    @Component({})
+    @Component({
+        metaInfo: {
+            title: 'Administration',
+        },
+    })
     export default class AdminComponent extends Vue {
 
         private beforeRouteEnter(to: Route, from: Route, next: (arg?: string | boolean) => void) {

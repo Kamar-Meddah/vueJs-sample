@@ -9,7 +9,11 @@
     import Component from 'vue-class-component';
     import {Route} from 'vue-router';
 
-    @Component({})
+    @Component({
+        metaInfo: {
+            title: 'Administrate Categories',
+        },
+    })
     export default class CategoriesComponent extends Vue {
         private beforeRouteEnter(to: Route, from: Route, next: (arg?: string | boolean) => void) {
             if (to.name === 'categories') {

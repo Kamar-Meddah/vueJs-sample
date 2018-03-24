@@ -3,7 +3,7 @@
     <h1 class="display-3">Home</h1>
     <br>
     <div v-for="(post, index) in posts" :key="post.id">
-        <v-card hover >
+        <v-card hover>
             <v-card-title primaryTitle>
                 <h2 class="display-1">
                     <router-link :to="{
@@ -28,6 +28,16 @@
 
             <v-container grid-list-lg>
                 <p v-html="post.content"></p>
+                <router-link :to="{
+                                name:'showPost',
+                                    params:{
+                                        category: post.category.slug,
+                                        title: post.slug,
+                                        id: post.id
+                                    }
+                            }">
+                    Show more
+                </router-link>
             </v-container>
             <div class="text-xs-right text--disabled">
                 {{post.created_at}}

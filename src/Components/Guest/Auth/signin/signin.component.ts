@@ -3,7 +3,11 @@ import Component from 'vue-class-component';
 import AuthService from '@/Services/auth.service';
 import ServicesFactory from '@/Services/services.factory';
 
-@Component({})
+@Component({
+    metaInfo: {
+        title: 'Login',
+    },
+})
 export default class SigninComponent extends Vue {
 
     private username: string;

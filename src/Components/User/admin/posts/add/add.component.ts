@@ -6,7 +6,11 @@ import ServicesFactory from '@/Services/services.factory';
 import {AxiosError, AxiosResponse} from 'axios';
 import PostsService from '@/Services/posts.service';
 
-@Component({})
+@Component({
+    metaInfo: {
+        title: 'Add Post',
+    },
+})
 export default class AddComponent extends Vue {
 
     private filesNumber: number;

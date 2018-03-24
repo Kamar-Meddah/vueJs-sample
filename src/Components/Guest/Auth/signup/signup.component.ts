@@ -4,7 +4,11 @@ import AuthService from '@/Services/auth.service';
 import ServicesFactory from '@/Services/services.factory';
 import {AxiosError, AxiosResponse} from 'axios';
 
-@Component({})
+@Component({
+    metaInfo: {
+        title: 'SignUp',
+    },
+})
 export default class SignupComponent extends Vue {
 
     private username: string;

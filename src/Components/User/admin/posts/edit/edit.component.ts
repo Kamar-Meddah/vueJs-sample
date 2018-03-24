@@ -8,7 +8,11 @@ import PostsService from '@/Services/posts.service';
 import ImageInterface from '@/Models/ImageInterface';
 import ImagesService from '@/Services/images.service';
 
-@Component({})
+@Component({
+    metaInfo: {
+        title: 'Edit Posts',
+    },
+})
 export default class EditComponent extends Vue {
     private filesNumber: number;
     private id: number;

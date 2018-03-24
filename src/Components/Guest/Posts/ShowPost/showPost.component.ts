@@ -11,7 +11,11 @@ import ServicesFactory from '@/Services/services.factory';
 import CommentModel from '@/Models/comment.model';
 import AuthService from '@/Services/auth.service';
 
-@Component({})
+@Component({
+    metaInfo: {
+        title: 'Post',
+    },
+})
 export default class ShowPostComponent extends Vue {
 
     private post: PostInterface | null;

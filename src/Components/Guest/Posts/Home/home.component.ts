@@ -3,7 +3,6 @@ import Component from 'vue-class-component';
 
 import PostsService from '@/Services/posts.service';
 import PostInterface from '@/Models/PostInterface';
-import CategoriesComponent from '@/Components/Guest/Posts/Categories/categories.component';
 import {SetAbstract} from '@/Pipes/SetAbstract.pipe';
 import ServicesFactory from '@/Services/services.factory';
 

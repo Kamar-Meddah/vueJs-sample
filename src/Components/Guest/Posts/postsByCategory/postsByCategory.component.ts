@@ -9,7 +9,7 @@ import ServicesFactory from '@/Services/services.factory';
 
 @Component({
     metaInfo: {
-        title: 'Categorie',
+        title: 'Categories',
     },
     filters: {
         SetAbstract,

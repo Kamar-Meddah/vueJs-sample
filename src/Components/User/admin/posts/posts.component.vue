@@ -9,7 +9,11 @@
     import Component from 'vue-class-component';
     import {Route} from 'vue-router';
 
-    @Component({})
+    @Component({
+        metaInfo: {
+            title: 'Edit Posts',
+        },
+    })
     export default class PostsComponent extends Vue {
 
         private beforeRouteEnter(to: Route, from: Route, next: (arg?: string | boolean) => void) {

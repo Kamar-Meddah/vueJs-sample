@@ -5,7 +5,11 @@ import PostsService from '@/Services/posts.service';
 import {AxiosError, AxiosResponse} from 'axios';
 import ServicesFactory from '@/Services/services.factory';
 
-@Component({})
+@Component({
+    metaInfo: {
+        title: 'Edit Posts',
+    },
+})
 export default class HomeComponent extends Vue {
     private postsService: PostsService;
     private posts: PostInterface[];

@@ -4,7 +4,11 @@ import ServicesFactory from '@/Services/services.factory';
 import AuthService from '@/Services/auth.service';
 import {AxiosError, AxiosResponse} from 'axios';
 
-@Component({})
+@Component({
+    metaInfo: {
+        title: 'Recover Password',
+    },
+})
 export default class PasswordResetComponent extends Vue {
 
     private e1: number;
