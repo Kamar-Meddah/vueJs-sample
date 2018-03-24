@@ -1,11 +1,11 @@
 import PostsRouter from './Posts/PostsRouter';
 import AuthRouter from './Auth/AuthRouter';
-import GuestComponent from '@/Components/Guest/guest.component.vue';
+
 
 const GuestRouter = [
     {
         path: '',
-        component: GuestComponent,
+        component: (resolve: any) => (require as any )(['@/Components/Guest/guest.component.vue'], resolve),
         children: [
             ...AuthRouter,
             ...PostsRouter,
@@ -13,5 +13,3 @@ const GuestRouter = [
     },
 ];
 export default GuestRouter;
-
-

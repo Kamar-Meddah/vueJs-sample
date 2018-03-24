@@ -1,4 +1,3 @@
-import AdminComponent from '@/Components/User/admin/admin.component.vue';
 import HomeComponent from '@/Components/User/admin/home/home.component';
 import CategoriesRouter from '@/Components/User/admin/categories/CategoriesRouter';
 import PostsRouter from '@/Components/User/admin/posts/PostsRouter';
@@ -6,7 +5,7 @@ import PostsRouter from '@/Components/User/admin/posts/PostsRouter';
 const AdminRouter = [
     {
         path: 'admin',
-        component: AdminComponent,
+        component: (resolve: any) => (require as any )(['@/Components/User/admin/admin.component.vue'], resolve),
         name: 'admin',
         children: [
             {
