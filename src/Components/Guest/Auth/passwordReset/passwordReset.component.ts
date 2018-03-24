@@ -114,6 +114,7 @@ export default class PasswordResetComponent extends Vue {
                         this.$router.push('/auth/signin');
                     } else {
                         alert('Not a valid Code');
+                        this.e1 = 2;
                     }
                 })
                 .catch((err: AxiosError) => {
