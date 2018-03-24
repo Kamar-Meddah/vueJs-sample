@@ -1,3 +1,4 @@
+import PostsComponent from '@/Components/Guest/Posts/posts.component.vue';
 import HomeComponent from '@/Components/Guest/Posts/Home/home.component';
 import PostsByCategoryComponent from '@/Components/Guest/Posts/postsByCategory/postsByCategory.component';
 import SearchComponent from '@/Components/Guest/Posts/Search/search.component';
@@ -5,7 +6,7 @@ import ShowPostComponent from '@/Components/Guest/Posts/ShowPost/showPost.compon
 
 const PostsRoute = [{
     path: '',
-    component: (resolve: any) => (require as any )(['@/Components/Guest/Posts/posts.component.vue'], resolve),
+    component: PostsComponent,
     children: [
         {
             path: '/:page(\\d+)?',

@@ -42,6 +42,14 @@ export default class AuthService {
         return this.http.put('auth/logout');
     }
 
+    public checkEmail(email: string): AxiosPromise {
+        return this.http.put('auth/checkEmail', {email});
+    }
+
+    public resetPassword(token: string, pass: string): AxiosPromise {
+        return this.http.put('auth/reset', {code: token, password: pass});
+    }
+
     private setAuthorisation(): void {
         this.http.defaults.headers.common.Authorization = this.store.getters.token;
     }

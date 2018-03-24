@@ -21,10 +21,14 @@ export default class AppComponent extends Vue {
     constructor() {
         super();
         this.authService = ServicesFactory.getInstance().getAuthService();
+    }
+
+    public mounted() {
         if (this.$store.getters.isLogged) {
             this.authService.checkToken().then((res) => {
                 if (!res.data.valid) {
                     this.$store.dispatch('logout');
+                    this.$router.push('/auth/signin');
                 }
             });
         }

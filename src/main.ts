@@ -1,5 +1,3 @@
-//  import '@fancyapps/fancybox/dist/jquery.fancybox.min';
-
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import AppComponent from './App.component';
@@ -12,7 +10,7 @@ import './registerServiceWorker';
 Vue.use(Meta);
 Vue.use(Vuetify);
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = true;
 new Vue({
     router,
     store,

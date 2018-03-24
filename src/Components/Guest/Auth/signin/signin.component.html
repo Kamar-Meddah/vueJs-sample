@@ -18,6 +18,11 @@
                                               required></v-text-field>
                                 <v-text-field v-model="password" :rules="[checkPassword]" type="password"
                                               label="Password" required></v-text-field>
+                                <div class="text-xs-left">
+                                    <p>
+                                        <router-link :to="{name:'password_reset'}">I Forgot my Password !</router-link>
+                                    </p>
+                                </div>
                                 <div class="text-xs-right">
                                     <v-btn color="primary" type="submit" @click.prevent="signin">Login</v-btn>
                                 </div>
