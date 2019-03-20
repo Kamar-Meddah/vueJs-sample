@@ -14,7 +14,7 @@
     "jwt-decode": "^2.2.0",
     "material-design-icons": "^3.0.1",
     "register-service-worker": "^1.0.0",
-    "vue": "^2.5.13",
+    "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
     "vue-meta": "^1.4.3",
     "vue-property-decorator": "^6.0.0",
