@@ -7,7 +7,9 @@
     "build": "vue-cli-service build",
     "test": "vue-cli-service test",
     "e2e": "vue-cli-service e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -20,22 +22,23 @@
     "vue-property-decorator": "^6.0.0",
     "vue-router": "^3.0.1",
     "vuetify": "^1.0.6",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "snyk": "^1.180.0"
   },
   "devDependencies": {
     "@types/jwt-decode": "^2.2.1",
     "@types/chai": "^4.1.0",
     "@types/mocha": "^2.2.46",
-    "@vue/cli-plugin-babel": "^3.0.0-beta.6",
-    "@vue/cli-plugin-e2e-nightwatch": "^3.0.0-beta.6",
+    "@vue/cli-plugin-babel": "^3.1.0",
+    "@vue/cli-plugin-e2e-nightwatch": "^3.0.0",
     "@vue/cli-plugin-pwa": "^3.0.0-beta.6",
-    "@vue/cli-plugin-typescript": "^3.0.0-beta.6",
-    "@vue/cli-plugin-unit-mocha": "^3.0.0-beta.6",
-    "@vue/cli-service": "^3.0.0-beta.6",
+    "@vue/cli-plugin-typescript": "^3.0.0",
+    "@vue/cli-plugin-unit-mocha": "^3.0.0",
+    "@vue/cli-service": "^3.2.2",
     "@vue/test-utils": "^1.0.0-beta.10",
     "chai": "^4.1.2",
     "lint-staged": "^6.0.0",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.9.1",
     "sass-loader": "^6.0.6",
     "vue-template-compiler": "^2.5.13"
   },
@@ -56,5 +59,6 @@
       "vue-cli-service lint",
       "git add"
     ]
-  }
+  },
+  "snyk": true
 }
