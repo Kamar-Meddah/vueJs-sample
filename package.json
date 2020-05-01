@@ -7,7 +7,9 @@
     "build": "vue-cli-service build",
     "test": "vue-cli-service test",
     "e2e": "vue-cli-service e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -20,7 +22,8 @@
     "vue-property-decorator": "^6.0.0",
     "vue-router": "^3.0.1",
     "vuetify": "^1.0.6",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@types/jwt-decode": "^2.2.1",
@@ -56,5 +59,6 @@
       "vue-cli-service lint",
       "git add"
     ]
-  }
+  },
+  "snyk": true
 }

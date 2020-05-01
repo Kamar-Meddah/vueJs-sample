@@ -1,0 +1,56 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - '@vue/test-utils > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - lint-staged > lodash:
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-plugin-babel > @babel/core > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-plugin-unit-mocha > mocha-webpack > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-service > webpack-merge > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-service > autodll-webpack-plugin > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-service > html-webpack-plugin > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - node-sass > sass-graph > lodash:
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-plugin-babel > @babel/core > @babel/traverse > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-service > autodll-webpack-plugin > webpack-merge > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-service > extract-text-webpack-plugin > async > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-service > thread-loader > async > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-service > webpack > async > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-service > optimize-css-assets-webpack-plugin > last-call-webpack-plugin > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-service > webpack-dev-server > http-proxy-middleware > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - node-sass > gaze > globule > lodash:
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-plugin-babel > @vue/babel-preset-app > @babel/preset-env > @babel/plugin-transform-block-scoping > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-plugin-unit-mocha > jsdom > request-promise-native > request-promise-core > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-plugin-babel > @vue/babel-preset-app > @babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-plugin-babel > @vue/babel-preset-app > @babel/preset-env > @babel/plugin-transform-modules-umd > @babel/helper-module-transforms > @babel/helper-simple-access > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-plugin-babel > @vue/babel-preset-app > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-plugin-babel > @vue/babel-preset-app > @babel/preset-stage-2 > @babel/preset-stage-3 > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-plugin-babel > @vue/babel-preset-app > @babel/preset-stage-2 > @babel/preset-stage-3 > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/helper-function-name > @babel/template > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-plugin-babel > @vue/babel-preset-app > @babel/preset-stage-2 > @babel/preset-stage-3 > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/template > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
+    - '@vue/cli-plugin-babel > @vue/babel-preset-app > @babel/preset-stage-2 > @babel/preset-stage-3 > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/helper-wrap-function > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
+        patched: '2020-05-01T03:34:18.063Z'
